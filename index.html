@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cửa hàng tiện lợi 24h</title>
+<style>
+:root{--bg:#dde7ea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1519}}
+:root[data-theme="dark"]{--bg:#0e1519}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{height:100%;margin:0}
+body{background:var(--bg);font:14px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden;user-select:none;-webkit-user-select:none;position:relative}
+#st{position:absolute;width:960px;height:540px;transform-origin:0 0;background:#cfe3e8;overflow:hidden;border-radius:6px}
+.a{position:absolute}
+button{font:inherit;cursor:pointer;border:0;border-radius:6px;padding:4px 8px;background:#f58220;color:#fff;font-weight:600}
+button:disabled{opacity:.35;cursor:default}
+#hud{left:0;top:0;width:960px;height:40px;background:#0b3d2e;color:#fff;display:flex;align-items:center;gap:12px;padding:0 10px;box-sizing:border-box;font-weight:600;z-index:5;position:absolute}
+#hud button{background:#1b6b50}
+#wall{left:0;top:40px;width:960px;height:170px;background:repeating-linear-gradient(90deg,#cfe3e8 0 58px,#bcd5dc 58px 60px)}
+#ctr{left:0;top:205px;width:960px;height:210px;background:linear-gradient(#cdd6dc,#9aa8b1);border-top:6px solid #7b8a94}
+#cab{left:0;top:415px;width:960px;height:125px;background:linear-gradient(#37444c,#27323a)}
+#cu{left:300px;top:46px;width:380px;height:160px;display:flex;align-items:flex-end;gap:10px}
+.bb{background:#fff;border-radius:12px;padding:6px 10px;margin-bottom:60px;box-shadow:0 2px 0 #0003;min-width:120px}
+.bb i{display:block;height:6px;background:#ddd;border-radius:3px;margin-top:4px;overflow:hidden}
+.bb i b{display:block;height:100%;width:100%;background:#43a047}
+.zn{background:#3b4750;border:3px solid #1f2a30;border-radius:8px;color:#fff;padding:4px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:3px;align-content:flex-start}
+.zn em{width:100%;font-size:11px;font-style:normal;opacity:.8}
+#mic{left:14px;top:228px;width:104px;height:128px}
+#ovn{left:126px;top:228px;width:104px;height:128px;background:#4a3a34}
+#tr{left:245px;top:232px;width:320px;height:160px;box-sizing:border-box;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;background:repeating-linear-gradient(45deg,#c58b4b 0 8px,#b57a3c 8px 16px);border:4px solid #7a4e22;border-radius:6px 6px 24px 24px}
+#pos{left:575px;top:218px;width:195px;height:140px;background:#1d2a33;border:3px solid #0d161c;border-radius:8px;color:#bfe;box-sizing:border-box;padding:4px;display:flex;flex-direction:column;gap:3px}
+.scr{flex:1;display:flex;flex-wrap:wrap;gap:2px;align-content:flex-start;overflow:hidden;font-size:12px}
+.scr i{font-style:normal;background:#2c4350;border-radius:4px;padding:1px 4px}
+.tt{font-weight:700;color:#ffd54f}
+.r{display:flex;gap:4px}.r button{flex:1;font-size:18px;padding:2px}
+#scn{left:575px;top:366px;width:195px;height:44px;background:#222;border-color:#111}
+#scn:before{content:"";position:absolute;left:8px;right:8px;top:20px;height:2px;background:#f33;box-shadow:0 0 8px #f33}
+#mac{left:780px;top:218px;width:170px;height:140px;background:#26323a}
+#cup{left:780px;top:366px;width:170px;height:44px;display:flex;align-items:center;gap:6px;color:#345;font-size:12px;padding-left:6px;box-sizing:border-box}
+#bg{left:245px;top:422px;width:340px;height:110px;display:flex;gap:8px;align-items:flex-end}
+.bag{background:#f7f1e3;border:3px solid #c9b88f;border-radius:6px 6px 14px 14px;height:92px;box-sizing:border-box;padding:3px;display:flex;flex-wrap:wrap;align-content:flex-start;font-size:15px;cursor:pointer;transition:transform .15s}
+.bag small{width:100%;font-size:11px;font-weight:700}
+.bag.sel{border-color:#f58220;transform:translateY(-6px);background:#fffbe9}
+#sgn{left:14px;top:432px;width:216px;height:84px;border-radius:8px;background:linear-gradient(#f58220 0 33%,#00834f 33% 66%,#e31d2b 66%);color:#fff;font:800 28px/84px system-ui;text-align:center;text-shadow:0 2px 3px #0008;letter-spacing:1px}
+#inf{left:600px;top:424px;width:350px;height:108px;color:#dfe;font-size:13px;line-height:1.55}
+#inf button{padding:1px 6px;font-size:12px}
+.it{display:inline-flex;font-size:28px;width:38px;height:38px;align-items:center;justify-content:center;background:#fffc;border-radius:8px;position:relative;touch-action:none;cursor:grab;flex:none}
+.it.sc{outline:2px solid #2e7d32}.it.hot{box-shadow:0 0 9px 3px #ff9800}.slip{background:#fff3b0;border:1px dashed #a80;cursor:default;touch-action:auto}
+.it u{position:absolute;left:0;bottom:0;height:4px;width:0;background:#4caf50;border-radius:2px}
+#gh{position:fixed;pointer-events:none;font-size:42px;z-index:99;transform:translate(-50%,-50%)}
+#ts{position:absolute;left:50%;top:48px;transform:translateX(-50%);background:#000c;color:#fff;padding:6px 14px;border-radius:16px;opacity:0;transition:opacity .25s;z-index:30;pointer-events:none;white-space:nowrap}
+#off,#pn,#ov{position:absolute;display:none}
+#off{left:0;top:40px;width:960px;height:500px;background:#000b;z-index:10;color:#ff0;font-size:30px;text-align:center;padding-top:150px;box-sizing:border-box}
+#off button{font-size:26px;padding:10px 24px;margin-top:16px}
+#pn{left:50px;top:50px;width:860px;height:440px;background:#fff;color:#1c2b33;border-radius:10px;z-index:20;overflow:auto;padding:10px;box-sizing:border-box;box-shadow:0 8px 30px #0007}
+.tb{display:flex;gap:6px;margin-bottom:8px;position:sticky;top:-10px;background:#fff;padding:4px 0}
+.tb button{background:#cfd8dc;color:#234}.tb button.on{background:#f58220;color:#fff}
+.rw{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.6fr;gap:6px;align-items:center;padding:3px 0;border-bottom:1px solid #0001}
+.rw.h{font-weight:700;background:#e8f1f3;padding:4px}
+#ov{left:0;top:0;width:960px;height:540px;background:#0a2a20ee;z-index:40;color:#fff;text-align:center;padding:30px 120px;box-sizing:border-box;line-height:1.6}
+#ov h1{font-size:38px;margin:0 0 8px}#ov button{font-size:18px;margin:6px;padding:8px 18px}
+.bad{color:#c62828}
+</style></head><body>
+<div id="st">
+<div id="hud"></div>
+<div class="a" id="wall"></div>
+<div class="a" id="cu"></div>
+<div class="a" id="ctr"></div>
+<div class="a" id="cab"></div>
+<div class="a zn" id="mic" data-z="mic"></div>
+<div class="a zn" id="ovn" data-z="ovn"></div>
+<div class="a" id="tr"></div>
+<div class="a" id="pos"></div>
+<div class="a zn" id="scn" data-z="scan"></div>
+<div class="a zn" id="mac" data-z="mac"></div>
+<div class="a" id="cup"></div>
+<div class="a" id="bg" data-z="bag"></div>
+<div class="a" id="sgn">7-ELEVEN</div>
+<div class="a" id="inf"></div>
+<div id="off"></div><div id="pn"></div><div id="ov"></div><div id="ts"></div>
+</div>
+<script>
+'use strict';
+/* ================= THÔNG SỐ CÂN BẰNG (chỉnh tại đây) =================
+ Mỗi hàng: [emoji, tên VI, tên EN, giá nhập, giá bán, HSD (ngày), nhóm (0 kệ,1 tủ lạnh 1,2 tủ lạnh 2,3 quầy), loại hâm] */
+const P=[
+['🍜','Mì gói','Instant noodles',3,6,60,0,0],['🍟','Snack khoai','Chips',4,8,40,0,0],
+['🍬','Kẹo','Candy',2,5,90,0,0],['🍪','Bánh quy','Cookies',3,7,50,0,0],
+['🧻','Khăn giấy','Tissue',2,5,300,0,0],['🔋','Pin','Battery',5,10,300,0,0],
+['🧴','Dầu gội','Shampoo',6,12,300,0,0],['📓','Sổ tay','Notebook',3,7,300,0,0],
+['🥜','Hạt dinh dưỡng','Nuts',4,9,45,0,0],['🪥','Bàn chải','Toothbrush',3,7,300,0,0],
+['💧','Nước suối','Water',1,3,20,1,0],['🥫','Nước ngọt','Soft drink',2,5,20,1,0],
+['🍺','Bia','Beer',5,10,25,1,0],['🥛','Sữa','Milk',3,6,8,1,0],['🧃','Nước ép','Juice',3,7,10,1,0],
+['🍙','Cơm nắm','Rice ball',5,11,2,2,'mic'],['🥪','Sandwich','Sandwich',6,13,2,2,'mic'],
+['🌭','Xúc xích','Hotdog',4,10,2,2,'ovn'],['🍕','Pizza','Pizza',8,16,2,2,'ovn'],['🥐','Bánh sừng bò','Croissant',4,9,2,2,'ovn'],
+['🍹','Soda','Soda',1,8,0,3,'mac'],['🥤','Coca tươi','Fresh cola',1,9,0,3,'mac']];
+const NP=20;                         // số mặt hàng có tồn kho (2 món cuối là đồ uống tại quầy)
+const DAY=900, START_H=6, END_H=24;  // 1 ngày = 900 giây thực, từ 6h đến 24h
+const START_MONEY=300, SPAWN_BASE=30; // tiền ban đầu; giây giữa 2 khách (càng nhỏ càng đông)
+const PATIENCE=[80,45,100,80];       // kiên nhẫn (giây): thường, vội, kỹ tính, mặc cả
+const demand=h=>h<8?.35:h<15?.8:h<19?1.7:h<21?.9:.35; // độ đông theo giờ
+const fixedCost=()=>60+20*Object.values(S.u).reduce((a,b)=>a+b,0); // lương + thuê + điện mỗi ngày
+const UP=[['scan','Máy quét nhanh','Faster scanner',150],['heat','Lò hâm nhanh','Faster ovens',150],['soda','Máy soda nhanh','Faster soda',120],
+['shelf','Thêm kệ (+3 sức chứa/món)','More shelves (+3/item)',140],['fridge','Thêm tủ lạnh (+3/món)','More fridge (+3/item)',160],
+['area','Mở rộng diện tích (kho, hàng chờ, kiên nhẫn)','Expand store (WH, queue, patience)',200]];
+const MAXLV=4;
+const TR=[['Bình thường','Normal','🙂'],['Vội','Rushed','😤'],['Kỹ tính','Picky','🧐'],['Mặc cả','Haggler','🤑']];
+const PM=['💵','💳','📱'];
+const TABN=[['Kho & Kệ','Stock'],['Đặt hàng','Order'],['Nâng cấp','Upgrade'],['Báo cáo','Report']];
+const GN=[['Kệ hàng','Shelves'],['Tủ lạnh 1 (đồ uống)','Fridge 1 (drinks)'],['Tủ lạnh 2 (đồ ăn)','Fridge 2 (food)']];
+
+/* ================= TIỆN ÍCH ================= */
+const $=id=>document.getElementById(id), rnd=n=>Math.random()*n, ri=n=>Math.floor(rnd(n)), pick=a=>a[ri(a.length)];
+const cl=x=>Math.max(0,Math.min(100,x));
+const ls={g(k){try{return localStorage.getItem(k)}catch(e){return null}},s(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang=ls.g('mlang')||'vi', S=null, mode='menu', tab=0, panelOpen=false, last=Date.now(), uid=0, dr=null;
+const t=(v,e)=>lang=='vi'?v:e, nm=i=>t(P[i][1],P[i][2]);
+const set=(id,h)=>{const e=$(id);if(e.__h!==h){e.__h=h;e.innerHTML=h}};
+const its=(c,f)=>c?c.items.filter(f):[];
+const cnt=b=>b.reduce((a,x)=>a+x.q,0);
+const expd=b=>b.filter(x=>S.d>x.e).reduce((a,x)=>a+x.q,0);
+const cap=i=>6+3*(P[i][6]==0?S.u.shelf:S.u.fridge);
+const whCap=()=>80+40*S.u.area, whTot=()=>S.pr.slice(0,NP).reduce((a,p)=>a+cnt(p.w),0);
+const price=i=>Math.round(P[i][4]*(S.promo>0?.8:1));
+const rdy=c=>c&&c.items.length>0&&c.items.every(x=>x.loc=='bag');
+const addB=(b,q,e)=>{const x=b.find(y=>y.e==e);x?x.q+=q:b.push({q,e});b.sort((a,c)=>a.e-c.e)};
+function toast(m){const e=$('ts');e.textContent=m;e.style.opacity=1;clearTimeout(e.__t);e.__t=setTimeout(()=>e.style.opacity=0,2400)}
+
+/* ================= TRẠNG THÁI & LƯU GAME ================= */
+const blank=()=>({rev:0,cogs:0,fx:0,rp:0,loss:0,n:0,lost:0});
+function base(){return{m:START_MONEY,d:1,r:50,t:0,u:{scan:0,heat:0,soda:0,shelf:0,fridge:0,area:0},rd:0,th:0,hol:0,st:blank(),
+ pr:P.slice(0,NP).map(p=>({s:[{q:5,e:p[5]+1}],w:[{q:5,e:p[5]+1}]}))}}
+function runtime(){Object.assign(S,{now:0,q:0,cur:null,nx:3,gap:0,off:0,offT:0,taps:0,fr:null,promo:0,sv:0});plan()}
+function save(){if(!S)return;const{m,d,r,t,u,rd,th,hol,st,pr}=S;ls.s('mart',JSON.stringify({m,d,r,t,u,rd,th,hol,st,pr}))}
+function plan(){S.ev=[];const n=2+ri(2);for(let k=0;k<n;k++)S.ev.push({t:S.t+30+rnd(Math.max(10,840-S.t)),k:pick(['pw','fr','th','th','pr'])});S.ev.sort((a,b)=>a.t-b.t)}
+
+/* ================= KHÁCH HÀNG ================= */
+const mk=i=>({u:++uid,i,h:P[i][7],sc:0,done:0,t0:0,dur:0,loc:i>=NP?'need':'tray'});
+function takeShelf(i){const b=S.pr[i].s,x=b[0],e=S.d>x.e;x.q--;if(!x.q)b.shift();return e}
+function newCust(){
+ const tr=pick([0,0,1,2,3]), c={tr,items:[],bag:-1,pay:ri(3),exp:0,disc:0,seed:ri(999)};
+ c.max=c.pat=PATIENCE[tr]*(1+.1*S.u.area);
+ let n=1+ri(5)+(ri(3)==0?ri(3):0),miss=0;
+ for(let k=0;k<n;k++){const i=ri(NP);if(cnt(S.pr[i].s)>0){if(takeShelf(i))c.exp=1;c.items.push(mk(i))}else miss++}
+ if(ri(100)<30)c.items.push(mk(NP+ri(2)));
+ if(ri(100)<8)c.items.push(mk(NP+ri(2)));
+ if(miss){S.r=cl(S.r-.5*miss);S.st.lost+=miss}
+ if(!c.items.length){S.r=cl(S.r-2);toast(t('Hết hàng – khách bỏ đi!','Out of stock – customer left!'));return null}
+ return c}
+function sprite(s){const k=['#f5cfa0','#e0ac69','#c68642','#8d5524'][s%4],h=['#222','#6b3e1e','#b5651d','#999'][(s>>2)%4],c=['#e53935','#1e88e5','#43a047','#8e24aa','#fb8c00'][s%5];
+ return `<svg viewBox="0 0 80 110" width="110"><rect x="10" y="62" width="60" height="50" rx="18" fill="${c}"/><circle cx="40" cy="38" r="24" fill="${k}"/><path d="M16 36a24 24 0 0148 0q-24-14-48 0" fill="${h}"/><circle cx="31" cy="40" r="3" fill="#222"/><circle cx="49" cy="40" r="3" fill="#222"/><path d="M32 51q8 6 16 0" stroke="#822" stroke-width="2.5" fill="none"/></svg>`}
+
+/* ================= THAO TÁC KÉO THẢ ================= */
+function drop(k,z){
+ const c=S.cur;if(!c)return;if(S.off)return toast(t('Đang mất điện!','Power is out!'));
+ if(k=='cup'){const it=c.items.find(x=>x.loc=='need');
+  if(z!='mac'||!it||c.items.some(x=>x.loc=='mac'&&!x.done))return toast(t('Chưa cần ly / máy đang bận','No cup needed / busy'));
+  it.loc='mac';it.t0=S.now;it.dur=3.5*Math.pow(.75,S.u.soda);return}
+ const it=c.items.find(x=>x.u==k);if(!it)return;
+ if(z=='scan'&&it.loc=='tray'&&!it.sc){it.loc='scn';it.t0=S.now;it.dur=.9*Math.pow(.7,S.u.scan)}
+ else if((z=='mic'||z=='ovn')&&it.loc=='tray'&&it.sc&&it.h==z){
+  if(its(c,x=>x.loc==z).length>=2)return toast(t('Lò đã đầy','Appliance full'));
+  it.loc=z;it.t0=S.now;it.dur=(z=='mic'?5:7)*Math.pow(.75,S.u.heat)}
+ else if(z=='bag'&&it.loc!='bag'&&it.sc&&(!it.h||it.done)&&!it.t0){
+  if(c.bag<0)return toast(t('Hãy chọn túi trước!','Pick a bag first!'));
+  if(its(c,x=>x.loc=='bag').length>=[3,5,10][c.bag])return toast(t('Túi đầy! Chọn túi lớn hơn','Bag full! Pick a bigger one'));
+  it.loc='bag'}
+ else toast(it.h&&it.h!='mac'&&!it.sc?t('Cần quét trước!','Scan first!'):!it.sc?t('Cần quét trước!','Scan first!'):t('Sai thao tác / sai lò!','Wrong action / wrong oven!'))}
+function pay(m){
+ const c=S.cur;if(!c||S.off)return;if(!rdy(c))return toast(t('Chưa xong hàng!','Order not ready!'));
+ if(c.disc==1){c.disc=3;c.pat-=c.max*.15}
+ if(m!=c.pay){S.r=cl(S.r-(c.tr==2?2:1));return toast(t('Sai phương thức thanh toán!','Wrong payment method!'))}
+ let tot=c.items.reduce((a,x)=>a+price(x.i),0);const cost=c.items.reduce((a,x)=>a+P[x.i][3],0);
+ if(c.disc==2)tot=Math.round(tot*.9);
+ const tip=Math.round(tot*.1*Math.max(0,c.pat/c.max));
+ if(c.exp){tot=Math.round(tot/2);S.r=cl(S.r-(c.tr==2?4:2));toast(t('Khách phát hiện hàng hết hạn! Hoàn 50%','Expired item found! 50% refund'))}
+ else toast('+'+(tot+tip)+'k');
+ S.m+=tot+tip;S.st.rev+=tot+tip;S.st.cogs+=cost;S.st.n++;S.r=cl(S.r+1+(c.pat>c.max*.5?1:0));
+ S.cur=null;S.gap=0;save()}
+
+/* ================= SỰ KIỆN NGẪU NHIÊN ================= */
+function fire(k){
+ if(k=='pw'){S.off=1;S.taps=0;S.offT=45;toast(t('⚡ MẤT ĐIỆN!','⚡ POWER OUT!'))}
+ else if(k=='fr'){S.fr={g:1+ri(2),t:70,fix:0};toast(t('❄️ Tủ lạnh '+S.fr.g+' bị hỏng!','❄️ Fridge '+S.fr.g+' broke!'))}
+ else if(k=='th'){const l=S.pr.map((p,i)=>i).filter(i=>i<NP&&cnt(S.pr[i].s)>0);if(!l.length)return;
+  const i=pick(l),q=Math.min(cnt(S.pr[i].s),1+ri(3));for(let j=0;j<q;j++)takeShelf(i);
+  const v=q*P[i][3];S.th+=v;S.st.loss+=v;toast(t('🕵️ Mất trộm '+q+' '+nm(i)+'! Hãy làm báo cáo','🕵️ '+q+' '+nm(i)+' stolen! File a report'))}
+ else if(k=='pr'){S.promo=120;toast(t('🏷️ Khuyến mãi 2 phút: giảm 20%, khách đông!','🏷️ Promo 2 min: -20%, more customers!'))}}
+
+/* ================= VÒNG LẶP CHÍNH ================= */
+function tick(){
+ const n=Date.now(),dt=Math.min((n-last)/1000,.5);last=n;
+ if(!S||mode!='play')return;
+ S.now+=dt;S.t+=dt;S.sv+=dt;if(S.sv>5){S.sv=0;save()}
+ while(S.ev.length&&S.ev[0].t<=S.t)fire(S.ev.shift().k);
+ if(S.promo>0)S.promo-=dt;
+ if(S.off){S.offT-=dt;if(S.offT<=0)S.off=0}
+ const h=START_H+S.t/DAY*(END_H-START_H);
+ S.nx-=dt;
+ if(S.nx<=0){S.nx=SPAWN_BASE/(demand(h)*(S.hol?1.7:1)*(S.promo>0?1.4:1)*(.6+S.r/100))*(.7+rnd(.6));
+  if(S.q<3+S.u.area)S.q++;else S.r=cl(S.r-.5)}
+ if(!S.cur&&S.q>0){S.gap+=dt;if(S.gap>.8){S.gap=0;S.q--;S.cur=newCust()}}
+ const c=S.cur;
+ if(c){c.pat-=dt;
+  for(const it of c.items)if(it.t0&&S.now-it.t0>=it.dur){it.t0=0;if(it.loc=='scn'){it.loc='tray';it.sc=1}else{it.done=1;it.sc=1}}
+  if(c.tr==3&&!c.disc&&c.items.some(x=>x.sc)){c.disc=1;toast(t('🤑 Khách: "Giảm giá đi!"','🤑 "Give me a discount!"'))}
+  if(c.pat<=0){S.r=cl(S.r-3);S.st.lost+=c.items.length;S.cur=null;toast(t('😡 Khách chờ quá lâu và bỏ đi!','😡 Customer left angry!'))}}
+ if(S.fr){const f=S.fr;
+  if(f.fix){f.fix-=dt;if(f.fix<=0){S.fr=null;toast(t('✅ Tủ lạnh đã sửa xong','✅ Fridge repaired'))}}
+  else{f.t-=dt;if(f.t<=0){let v=0;for(let i=0;i<NP;i++)if(P[i][6]==f.g){v+=cnt(S.pr[i].s)*P[i][3];S.pr[i].s=[]}
+   S.m-=120;S.st.rp+=120;S.st.loss+=v;S.fr=null;toast(t('❄️ Hàng trong tủ hỏng hết! Sửa gấp −120k','❄️ Fridge stock spoiled! Emergency repair −120k'))}}}
+ if(S.t>=DAY)endDay();
+ R();ui()}
+
+/* ================= KẾT THÚC NGÀY ================= */
+function endDay(){
+ mode='end';S.cur=null;S.q=0;S.off=0;
+ const fx=fixedCost()+(S.rd?0:40);S.m-=fx;S.st.fx=fx;if(!S.rd)S.r=cl(S.r-2);
+ const s=S.st,pf=s.rev-s.cogs-s.fx-s.rp-s.loss,bk=S.m<-200;save();
+ ov(`<h1>📊 ${t('Báo cáo ngày','Day report')} ${S.d}</h1>
+ <div style="text-align:left;display:inline-block;font-size:17px">
+ ${t('Khách phục vụ','Served')}: <b>${s.n}</b> · ${t('Mất khách/hàng','Lost')}: <b>${s.lost}</b><br>
+ ${t('Doanh thu','Revenue')}: <b>${s.rev}k</b> · ${t('Giá vốn','COGS')}: <b>−${s.cogs}k</b><br>
+ ${t('Lương/thuê/điện','Wages/rent')}: <b>−${s.fx}k</b>${S.rd?'':' ('+t('gồm phạt không nộp báo cáo','incl. late-report fine')+')'}<br>
+ ${t('Sửa chữa','Repairs')}: <b>−${s.rp}k</b> · ${t('Hao hụt/mất trộm','Loss/theft')}: <b>−${s.loss}k</b><br>
+ <b style="font-size:22px;color:${pf>=0?'#8f8':'#f88'}">${t('Lợi nhuận','Profit')}: ${pf}k</b><br>💰 ${t('Tiền mặt','Cash')}: ${Math.round(S.m)}k · ⭐ ${Math.round(S.r)}</div><br>
+ ${bk?`<h2>${t('Phá sản!','Bankrupt!')}</h2><button data-a="new">${t('Chơi mới','New game')}</button>`:`<button data-a="next">${t('Sang ngày mới ▶','Next day ▶')}</button>`}`)}
+function nextDay(){S.d++;S.t=0;S.rd=0;S.th=0;S.st=blank();S.cur=null;S.q=0;S.promo=0;S.nx=3;S.hol=ri(100)<18?1:0;plan();save();ov('');mode='play';
+ if(S.hol)toast(t('🎉 Ngày lễ: khách đông gấp đôi!','🎉 Holiday: rush day!'))}
+
+/* ================= HIỂN THỊ ================= */
+const ch=(x,d)=>`<b class="it${x.sc?' sc':''}${x.done&&x.h?' hot':''}"${d?` data-k="${x.u}"`:''}>${P[x.i][0]}</b>`;
+function R(){
+ const c=S.cur,q=its(c,x=>x.sc),tot=q.reduce((a,x)=>a+price(x.i),0),ok=rdy(c);
+ set('cu',c?`<div>${sprite(c.seed)}</div><div class="bb">${TR[c.tr][2]} ${t(TR[c.tr][0],TR[c.tr][1])}<br>${ok?t('Trả bằng','Pays by')+' '+PM[c.pay]:'🛍️ '+c.items.length+' '+t('món','items')}<i><b id="pb"></b></i></div>`
+  :`<div class="bb" style="margin-bottom:90px">${S.q>0?'…':t('Vắng khách – hãy fill hàng 📦','Quiet – restock! 📦')}</div>`);
+ set('tr',c?its(c,x=>x.loc=='tray'||x.loc=='need').map(x=>x.loc=='need'?`<b class="it slip">${P[x.i][0]}<small>?</small></b>`:ch(x,1)).join(''):'');
+ const ap=(z,lab)=>`<em>${lab}</em>`+its(c,x=>x.loc==z).map(x=>x.t0?`<b class="it">${P[x.i][0]}<u data-t0="${x.t0}" data-d="${x.dur}"></u></b>`:ch(x,1)).join('');
+ set('mic',ap('mic','🔥 '+t('Lò vi sóng','Microwave')));set('ovn',ap('ovn','♨️ '+t('Lò nướng','Oven')));
+ set('mac',ap('mac','🥤 '+t('Máy soda/coca','Soda machine')));set('scn',ap('scn','📷'));
+ set('cup',`<b class="it" data-k="cup">🥛</b>${t('Kéo ly vào máy','Drag cup to machine')}`);
+ set('pos',`<div class="scr">${q.map(x=>`<i>${P[x.i][0]}${price(x.i)}</i>`).join('')}</div><div class="tt">${t('Tổng','Total')}: ${c&&c.disc==2?Math.round(tot*.9):tot}k</div>`+
+  (c&&c.disc==1?`<div class="r"><button data-a="dc" data-v="2">−10%</button><button data-a="dc" data-v="3">${t('Không','No')}</button></div>`:'')+
+  `<div class="r">${PM.map((e,j)=>`<button data-a="pay" data-v="${j}"${ok?'':' disabled'}>${e}</button>`).join('')}</div>`);
+ set('bg',[3,5,10].map((cp,j)=>`<div class="bag${c&&c.bag==j?' sel':''}" data-a="bag" data-v="${j}" style="width:${80+j*32}px"><small>${t('Túi','Bag')} ${cp}</small>${c&&c.bag==j?its(c,x=>x.loc=='bag').map(x=>`<span>${P[x.i][0]}</span>`).join(''):''}</div>`).join(''));
+ const f=S.fr;
+ set('inf',`<div>${S.off?'⚡':'💡'} ${t('Điện','Power')}: ${S.off?t('MẤT','OUT'):'OK'} ${S.hol?' 🎉 '+t('Ngày lễ','Holiday'):''} ${S.promo>0?' 🏷️ −20%':''}</div>`+
+  [1,2].map(g=>`<div>❄️ ${t('Tủ','Fridge')} ${g}: ${f&&f.g==g?(f.fix?'🔧 '+t('đang sửa','fixing'):`<b style="color:#f77">${t('HỎNG','BROKEN')}</b> <span id="frt"></span>s <button data-a="fix">${t('Gọi bảo trì −60k','Repair −60k')}</button>`):'OK'}</div>`).join('')+
+  `<div>🚶 ${t('Hàng chờ','Queue')}: ${S.q}/${3+S.u.area}${S.th&&!S.rd?'':''}</div>`);
+ const o=$('off');o.style.display=S.off?'block':'none';
+ set('off',`⚡ ${t('MẤT ĐIỆN!','POWER OUT!')}<br><button data-a="brk">🔌 ${t('Bật cầu dao','Reset breaker')}</button>`)}
+function ui(){
+ const h=START_H+S.t/DAY*(END_H-START_H),hh=Math.floor(h),mm=Math.floor((h-hh)*60);
+ $('m').textContent=Math.round(S.m);$('d').textContent=S.d;$('r').textContent=Math.round(S.r);
+ $('c').textContent=String(hh).padStart(2,0)+':'+String(mm).padStart(2,0);
+ const c=S.cur,pb=$('pb');if(c&&pb){pb.style.width=Math.max(0,c.pat/c.max*100)+'%';pb.style.background=c.pat/c.max<.3?'#e53935':'#43a047'}
+ document.querySelectorAll('u[data-t0]').forEach(u=>u.style.width=Math.min(100,(S.now-u.dataset.t0)/u.dataset.d*100)+'%');
+ const ft=$('frt');if(ft&&S.fr)ft.textContent=Math.ceil(S.fr.t)}
+function hud(){$('hud').innerHTML=`<span>💰 <b id="m"></b>k</span><span>📅 ${t('Ngày','Day')} <b id="d"></b></span><span>⭐ <b id="r"></b></span><span>🕒 <b id="c"></b></span><span style="flex:1"></span>`+
+ ['📦','🛒','⬆️','📋'].map((e,j)=>`<button data-a="open" data-v="${j}">${e} ${t(TABN[j][0],TABN[j][1])}</button>`).join('')+`<button data-a="lang">🌐 ${lang.toUpperCase()}</button>`}
+function ov(h){const e=$('ov');e.style.display=h?'block':'none';e.innerHTML=h}
+function menu(){mode='menu';ov(`<h1>🏪 ${t('Cửa hàng tiện lợi 24h','24h Convenience Store')}</h1><p>${t('Quản lý cửa hàng: thanh toán, hâm nóng, fill hàng, đặt hàng, nâng cấp.','Run your store: checkout, heat food, restock, order, upgrade.')}</p>
+ ${ls.g('mart')?`<button data-a="cont">▶ ${t('Chơi tiếp','Continue')}</button>`:''}<button data-a="new">✨ ${t('Chơi mới','New game')}</button><button data-a="lang">🌐 ${lang=='vi'?'English':'Tiếng Việt'}</button>`)}
+function tutorial(){ov(`<h1>${t('Hướng dẫn nhanh','Quick guide')}</h1><div style="text-align:left;font-size:16px">
+ 1️⃣ ${t('Khách đặt rổ lên quầy → <b>chọn túi</b> (3/5/10 món) ở dưới bàn.','Customer puts a basket → <b>pick a bag</b> (3/5/10) below the counter.')}<br>
+ 2️⃣ ${t('<b>Kéo món qua máy quét</b> 📷 – món hiện lên màn hình POS.','<b>Drag items to the scanner</b> 📷 – they show on the POS.')}<br>
+ 3️⃣ ${t('Đồ ăn nóng: kéo vào <b>lò vi sóng</b> (🍙🥪) hoặc <b>lò nướng</b> (🌭🍕🥐), chờ xong rồi kéo vào túi. Soda/Coca: kéo <b>ly 🥛</b> vào máy, rồi kéo ly ra túi.','Hot food: drag to <b>microwave</b> (🍙🥪) or <b>oven</b> (🌭🍕🥐), wait, then bag it. Soda/Cola: drag the <b>cup 🥛</b> to the machine, then bag it.')}<br>
+ 4️⃣ ${t('Khi đủ hàng trong túi, bấm đúng <b>phương thức thanh toán</b> khách dùng (💵💳📱).','When all items are bagged, tap the customer’s <b>payment method</b> (💵💳📱).')}<br>
+ 5️⃣ ${t('Lúc vắng khách: <b>📦 fill hàng</b>, <b>🛒 đặt hàng</b>, <b>⬆️ nâng cấp</b>, <b>📋 nộp báo cáo</b> & báo mất trộm. Kiểm tra hạn sử dụng (🗑 vứt hàng hết hạn). Có mất điện/tủ lạnh hỏng → xử lý ngay!','Quiet time: <b>📦 restock</b>, <b>🛒 order</b>, <b>⬆️ upgrade</b>, <b>📋 file reports</b>. Check expiry (🗑). Blackouts/broken fridges need fixing!')}</div><br><button data-a="go">${t('Bắt đầu','Start')}</button>`)}
+
+/* ================= BẢNG QUẢN LÝ ================= */
+function pn(){
+ const el=$('pn');if(!panelOpen){el.style.display='none';return}el.style.display='block';
+ let h=`<div class="tb">${TABN.map((n,j)=>`<button data-a="tab" data-v="${j}" class="${tab==j?'on':''}">${t(n[0],n[1])}</button>`).join('')}<span style="flex:1"></span><button data-a="close">✖</button></div>`;
+ if(tab<2){
+  h+=tab==0?`<div style="margin-bottom:4px">📦 ${t('Kho','Warehouse')}: ${whTot()}/${whCap()} <button data-a="filla">${t('Fill tất cả','Fill all')}</button></div>`
+   :`<div style="margin-bottom:4px">💰 ${Math.round(S.m)}k · 📦 ${whTot()}/${whCap()} <small>(${t('hàng giao ngay','instant delivery')})</small></div>`;
+  for(let i=0;i<NP;i++){const p=P[i],d=S.pr[i];
+   if(!i||p[6]!=P[i-1][6])h+=`<div class="rw h"><span>${t(GN[p[6]][0],GN[p[6]][1])}</span><span></span><span></span><span></span><span></span></div>`;
+   const e=d.s.length?d.s[0].e-S.d:null;
+   h+=tab==0?`<div class="rw"><span>${p[0]} ${nm(i)}</span><span>${t('Kệ','Shelf')} ${cnt(d.s)}/${cap(i)}</span><span>${t('Kho','WH')} ${cnt(d.w)}${expd(d.w)?' ⚠️':''}</span><span class="${e!==null&&e<0?'bad':''}">${e===null?'–':'HSD '+e+t('n','d')}</span><span><button data-a="fill" data-v="${i}">▲ Fill</button> ${expd(d.s)||expd(d.w)?`<button data-a="trash" data-v="${i}">🗑 ${expd(d.s)+expd(d.w)}</button>`:''}</span></div>`
+   :`<div class="rw"><span>${p[0]} ${nm(i)}</span><span>${t('Nhập','Cost')} ${p[3]}k</span><span>${t('Bán','Sell')} ${p[4]}k</span><span>HSD ${p[5]}${t('n','d')} · ${cnt(d.w)}</span><span><button data-a="buy" data-v="${i}">+6 (${6*p[3]}k)</button></div>`}
+ }else if(tab==2){
+  h+=`<div>💰 ${Math.round(S.m)}k · ${t('Chi phí cố định/ngày','Fixed cost/day')}: ${fixedCost()}k</div>`+UP.map(u=>{const lv=S.u[u[0]],cost=u[3]*(lv+1);
+   return `<div class="rw"><span>${t(u[1],u[2])}</span><span>Lv ${lv}/${MAXLV}</span><span>${lv<MAXLV?cost+'k':'MAX'}</span><span></span><span><button data-a="up" data-v="${u[0]}"${lv>=MAXLV?' disabled':''}>⬆️ ${t('Nâng','Upgrade')}</button></span></div>`}).join('');
+ }else{
+  const s=S.st;
+  h+=`<p>${t('Doanh thu hôm nay','Revenue today')}: <b>${s.rev}k</b> · ${t('Giá vốn','COGS')}: ${s.cogs}k</p>
+  <p>📋 ${t('Báo cáo ngày về công ty (thưởng +25k, +1⭐; không nộp bị phạt 40k)','Daily HQ report (+25k, +1⭐; skipped = −40k fine)')}: ${S.rd?'✅':`<button data-a="rpt">${t('Nộp báo cáo','Submit report')}</button>`}</p>
+  <p>🕵️ ${t('Mất trộm chưa báo cáo','Unreported theft')}: <b>${S.th}k</b> ${S.th?`<button data-a="thr">${t('Báo cáo mất trộm (bảo hiểm hoàn 50%)','Report theft (50% refund)')}</button>`:''}</p>
+  <p>🗑 ${t('Kiểm tra hạn sử dụng ở tab Kho & Kệ: hàng đỏ/⚠️ là đã hết hạn, bán ra sẽ bị trừ danh tiếng.','Check expiry in the Stock tab: red/⚠️ means expired; selling it costs reputation.')}</p>`}
+ const sc=el.scrollTop;el.innerHTML=h;el.scrollTop=sc}
+
+/* ================= HÀNH ĐỘNG NÚT BẤM ================= */
+function fill(i){const d=S.pr[i];let room=cap(i)-cnt(d.s);while(room>0&&d.w.length){const b=d.w[0],q=Math.min(room,b.q);addB(d.s,q,b.e);b.q-=q;room-=q;if(!b.q)d.w.shift()}}
+function act(a,v){
+ const c=S&&S.cur;
+ if(a=='lang'){lang=lang=='vi'?'en':'vi';ls.s('mlang',lang);document.querySelectorAll('#st *').forEach(e=>e.__h=null);hud();if(mode=='menu')menu();if(S)pn()}
+ else if(a=='new'){S=base();runtime();ls.s('mart','');save();hud();mode='menu';tutorial()}
+ else if(a=='cont'){try{S=Object.assign(base(),JSON.parse(ls.g('mart')))}catch(e){S=base()}runtime();hud();ov('');mode='play'}
+ else if(a=='go'){ov('');mode='play'}
+ else if(a=='next')nextDay();
+ else if(mode!='play'&&a!='tab'&&a!='close')return;
+ else if(a=='bag'){if(!c)return;v=+v;if(its(c,x=>x.loc=='bag').length>[3,5,10][v])return toast(t('Túi quá nhỏ!','Bag too small!'));c.bag=v}
+ else if(a=='pay')pay(+v);
+ else if(a=='dc'&&c){c.disc=+v;if(v==2)S.r=cl(S.r+.5);else c.pat-=c.max*.15}
+ else if(a=='open'){panelOpen=true;tab=+v;pn()}
+ else if(a=='close'){panelOpen=false;pn()}
+ else if(a=='tab'){tab=+v;pn()}
+ else if(a=='fill'){fill(+v);pn()}
+ else if(a=='filla'){for(let i=0;i<NP;i++)fill(i);pn()}
+ else if(a=='trash'){const d=S.pr[+v];let l=0;for(const k of['s','w']){l+=d[k].filter(x=>S.d>x.e).reduce((a,x)=>a+x.q*P[+v][3],0);d[k]=d[k].filter(x=>S.d<=x.e)}S.st.loss+=l;pn();toast(t('Đã vứt hàng hết hạn','Expired stock removed'))}
+ else if(a=='buy'){const i=+v,cost=6*P[i][3];if(S.m<cost)return toast(t('Không đủ tiền!','Not enough money!'));
+  if(whTot()+6>whCap())return toast(t('Kho đã đầy – hãy fill hàng ra kệ hoặc nâng cấp','Warehouse full'));S.m-=cost;addB(S.pr[i].w,6,S.d+P[i][5]);pn()}
+ else if(a=='up'){const u=UP.find(x=>x[0]==v),lv=S.u[v],cost=u[3]*(lv+1);if(S.m<cost)return toast(t('Không đủ tiền!','Not enough money!'));S.m-=cost;S.u[v]++;pn();save()}
+ else if(a=='rpt'){S.rd=1;S.m+=25;S.r=cl(S.r+1);pn();toast(t('Đã nộp báo cáo +25k','Report sent +25k'))}
+ else if(a=='thr'){const b=Math.round(S.th*.5);S.m+=b;S.st.loss-=b;S.th=0;pn();toast('+'+b+'k')}
+ else if(a=='fix'&&S.fr&&!S.fr.fix){S.m-=60;S.st.rp+=60;S.fr.fix=15}
+ else if(a=='brk'){S.taps++;if(S.taps>=6){S.off=0;toast('💡 OK')}}
+ if(S&&mode=='play')R()}
+
+/* ================= KHỞI TẠO & SỰ KIỆN CHUỘT/CHẠM ================= */
+function fit(){const s=Math.min(innerWidth/960,innerHeight/540),e=$('st');e.style.transform=`scale(${s})`;e.style.left=(innerWidth-960*s)/2+'px';e.style.top=(innerHeight-540*s)/2+'px'}
+$('st').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b&&!b.disabled)act(b.dataset.a,b.dataset.v)});
+$('st').addEventListener('pointerdown',e=>{const d=e.target.closest('[data-k]');if(!d||mode!='play')return;e.preventDefault();
+ dr=d.dataset.k;const g=document.createElement('div');g.id='gh';g.textContent=d.textContent.replace('?','');g.style.left=e.clientX+'px';g.style.top=e.clientY+'px';document.body.appendChild(g)});
+addEventListener('pointermove',e=>{const g=$('gh');if(g){g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'}});
+addEventListener('pointerup',e=>{const g=$('gh');if(!g)return;g.remove();const k=dr;dr=null;
+ const z=document.elementFromPoint(e.clientX,e.clientY),zn=z&&z.closest('[data-z]');if(zn&&S&&mode=='play'){drop(k,zn.dataset.z);R()}});
+addEventListener('resize',fit);fit();hud();menu();setInterval(tick,100);
+</script></body></html>
