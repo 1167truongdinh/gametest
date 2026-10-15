@@ -336,7 +336,7 @@ button.big{font-size:22px;padding:10px 26px;border-radius:14px}
 
 /* ===== MENU / HƯỚNG DẪN / BÁO CÁO NGÀY ===== */
 #ov{position:absolute;display:none;left:0;top:0;width:960px;height:540px;background:radial-gradient(circle at 50% 28%,#1d8a68,#0a3a2b 55%,#04170f);z-index:40;color:#fff;text-align:center;box-sizing:border-box;line-height:1.35;overflow:hidden}
-#ov:before{content:"";position:absolute;inset:0;background:repeating-conic-gradient(#ffffff0a 0 6deg,#0000 6deg 12deg);animation:spin 60s linear infinite;pointer-events:none}
+#ov:before{content:"";position:absolute;left:50%;top:50%;width:1400px;height:1400px;margin:-700px 0 0 -700px;background:repeating-conic-gradient(#ffffff12 0 6deg,#0000 6deg 12deg);-webkit-mask:radial-gradient(circle,#000 25%,#0000 70%);mask:radial-gradient(circle,#000 25%,#0000 70%);animation:spin 60s linear infinite;pointer-events:none;will-change:transform}
 #ov>.mn,#ov>.rep,#ov>.tut,#ov>.ovh,#ov>.cnt{position:relative}
 .mn{display:flex;flex-direction:column;align-items:center;height:100%;justify-content:center;gap:8px;padding:0 120px}
 .shopf{width:360px;height:178px;filter:drop-shadow(0 14px 12px #000a)}
@@ -345,7 +345,8 @@ button.big{font-size:22px;padding:10px 26px;border-radius:14px}
 .mn .btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center}
 .fl1,.fl2,.fl3,.fl4,.fl5{position:absolute;animation:bob 3s ease-in-out infinite}
 .fl1{left:90px;top:80px}.fl2{left:770px;top:110px;animation-delay:-1s}.fl3{left:150px;top:360px;animation-delay:-2s}.fl4{left:760px;top:350px;animation-delay:-.5s}.fl5{left:430px;top:30px;animation-delay:-1.5s}
-.fl1 svg,.fl2 svg,.fl3 svg,.fl4 svg,.fl5 svg{width:64px;height:64px;filter:drop-shadow(0 8px 6px #0008)}
+.fl1 svg,.fl2 svg,.fl3 svg,.fl4 svg,.fl5 svg{display:block;width:64px;height:64px;filter:none;overflow:visible}
+.fl1,.fl2,.fl3,.fl4,.fl5{filter:drop-shadow(0 8px 6px #0008);width:64px;height:64px}
 .ovh{margin:0;padding-top:20px;font:800 34px/1.1 var(--font);text-shadow:0 4px 0 #0007}
 .tut{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 70px 0;text-align:left}
 .tc{display:flex;gap:10px;align-items:flex-start;background:linear-gradient(#ffffff26,#ffffff10);border:2px solid #ffffff40;border-radius:14px;padding:9px 12px;font-size:13.5px;box-shadow:0 5px 10px #0005}
@@ -613,7 +614,7 @@ button.big{font-size:22px;padding:10px 26px;border-radius:14px}
 #mg .qsh:after{content:"";position:absolute;left:0;right:0;bottom:0;height:16px;background:linear-gradient(#e8f7ff,#9fd0e6 60%,#6fa9c4);border-top:2px solid #fff;box-shadow:0 6px 10px #0003}
 #mg .qi{position:relative;z-index:1;width:118px;height:176px;box-sizing:border-box;margin-bottom:-2px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:12px 6px 8px;background:linear-gradient(#ffffffd9,#ffffff88);border:2px solid #fff;box-shadow:0 5px 8px #0004;cursor:pointer;transition:transform .1s,background .15s}
 #mg .qi:hover{transform:translateY(-3px)}
-#mg .qi .em{font-size:68px;line-height:1;filter:drop-shadow(0 3px 2px #0003)}
+#mg .qi .em{width:92px;height:92px;display:block;filter:drop-shadow(0 3px 2px #0003)}#mg .qi .em svg{width:100%;height:100%;display:block}
 #mg .qi .nm{font:700 13px/1 var(--font);color:#35505e}
 #mg .qi .dt{width:100%;text-align:center;box-sizing:border-box;padding:4px 2px 3px;border-radius:7px;background:#fffbe0;border:2px solid #c9a227;color:#3a2412;font:800 20px/1 var(--font);box-shadow:0 2px 0 #c9a22788}
 #mg .qi .dt small{display:block;font:800 11px/1 var(--font);opacity:.7;margin-bottom:2px}
@@ -1816,7 +1817,7 @@ function qaBuild(){
  const d0=new Date(),dd=k=>{const x=new Date(d0.getFullYear(),d0.getMonth(),d0.getDate()+k);return String(x.getDate()).padStart(2,0)+'/'+String(x.getMonth()+1).padStart(2,0)};
  const ids=QA_FOOD.slice().sort(()=>Math.random()-.5),ne=3+ri(3),ex=new Set();while(ex.size<ne)ex.add(ri(10));
  Q.items=ids.map((i,k)=>{const e=ex.has(k);return{i,e,d:e?dd(-(1+ri(3))):dd(1+ri(5))}});
- const row=r=>Q.items.slice(r*5,r*5+5).map((x,j)=>`<div class="qi" data-q="${r*5+j}"><span class="em">${P[x.i][0]}</span><span class="nm">${nm(x.i)}</span><div class="dt"><small>HSD</small>${x.d}</div></div>`).join('');
+ const row=r=>Q.items.slice(r*5,r*5+5).map((x,j)=>`<div class="qi" data-q="${r*5+j}"><span class="em">${ic(x.i)}</span><span class="nm">${nm(x.i)}</span><div class="dt"><small>HSD</small>${x.d}</div></div>`).join('');
  const el=$('mg');el.className='qa';el.style.display='block';
  el.innerHTML=`<div class="mgh"><b id="qat">${QA_T.toFixed(1)}</b><span>${t('Chọn hàng HẾT DATE (HSD trước hôm nay '+dd(0)+')','Pick EXPIRED items (date before today '+dd(0)+')')}</span><i class="mgp"><s id="qas" style="width:100%"></s></i><span id="qac" style="min-width:64px;text-align:right">0 ${t('món','sel.')}</span><button class="g" data-qa="ok" style="padding:6px 14px">${t('Hủy hàng ✔','Discard ✔')}</button></div>
  <div class="qfr"><div class="qhd"></div><div class="qin"><div class="qsh">${row(0)}</div><div class="qsh">${row(1)}</div></div></div>
