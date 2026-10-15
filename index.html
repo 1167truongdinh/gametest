@@ -286,8 +286,7 @@ button.big{font-size:22px;padding:10px 26px;border-radius:14px}
 .sk.xp{outline:3px solid #ee2e24;outline-offset:-3px;background:#ee2e2418}
 .xb{position:absolute;right:1px;top:1px;z-index:5;padding:1px 5px;font-size:10px;border-radius:6px;display:inline-flex;align-items:center;gap:2px}
 .xb .ui{width:11px;height:11px}
-.rbody .sk,.wcb .sk{padding-bottom:10px}.bxs{cursor:grab;touch-action:none}.bxs.em{opacity:.55;cursor:default;touch-action:auto}
-.rbody .pile:before,.wcb .pile:before{content:"";position:absolute;left:6%;right:6%;bottom:0;height:8px;border-radius:2px;background:repeating-linear-gradient(90deg,#c29a62 0 22px,#9a7240 22px 25px);box-shadow:0 2px 0 #6f4f27;z-index:0}
+.rbody .sk,.wcb .sk{padding-bottom:0}.bxs{cursor:grab;touch-action:none}.bxs.em{opacity:.55;cursor:default;touch-action:auto}
 .cbody{flex:1;min-height:0;position:relative;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);padding:8px 6px 0;border:7px solid #d6dee3;border-top:0;border-bottom:0;background:radial-gradient(ellipse at 50% 0,#bfe6ff,#4f97d6 70%,#2f6fb0)}
 .cbody:before{content:"";position:absolute;left:0;right:0;top:0;height:7px;background:linear-gradient(#fff,#bfeaff);box-shadow:0 3px 10px 3px #e8f8ff}
 .cbody:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:4;background:linear-gradient(112deg,#fff0 0 28%,#ffffff30 28% 36%,#fff0 36% 50%,#ffffff1c 50% 54%,#fff0 54%)}
@@ -582,6 +581,53 @@ button.big{font-size:22px;padding:10px 26px;border-radius:14px}
 @keyframes cpin{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
 #cp.pk{top:336px;height:200px}
 #cp.pk .cpm{height:40px}
+/* ===== MINIGAME 1: LAU SÀN ===== */
+#mg{position:absolute;display:none;left:0;top:0;width:960px;height:540px;z-index:50;overflow:hidden;touch-action:none;background:#0b1d27}
+#mg .mgf{position:absolute;inset:0;background:repeating-linear-gradient(90deg,#0000 0 78px,#7f95a1 78px 80px),repeating-linear-gradient(0deg,#0000 0 78px,#7f95a1 78px 80px),repeating-conic-gradient(#eef4f6 0 25%,#dbe6eb 0 50%) 0 0/160px 160px;box-shadow:inset 0 0 90px #0005}
+#mgc{position:absolute;left:0;top:0;width:960px;height:540px}
+#mg .mgh{position:absolute;left:0;top:0;right:0;height:46px;display:flex;align-items:center;gap:12px;padding:0 16px;box-sizing:border-box;background:linear-gradient(#3068b0,#1a3f74);box-shadow:0 4px 10px #0007;color:#fff;font:800 16px var(--font)}
+#mg .mgh b{min-width:62px;font:800 26px var(--font);font-variant-numeric:tabular-nums;color:#ffe27a}
+#mg .mgh b.low{color:#ff6a5f}#mg .mgh #mgl{min-width:50px;font-size:18px;text-align:right;color:#fff}
+#mg .mgp{flex:1;height:16px;border-radius:9px;background:#0009;overflow:hidden;box-shadow:inset 0 2px 3px #000a}
+#mg .mgp s{display:block;height:100%;width:0;background:linear-gradient(#9af0b4,#2fb552);transition:width .15s}
+#mgtool{position:absolute;right:16px;bottom:16px;width:118px;height:118px;box-sizing:border-box;padding:6px;border-radius:18px;background:linear-gradient(#ffd27d,#ff9a2e);border:4px solid #7a3500;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;box-shadow:0 5px 0 #7a3500,0 10px 14px #0007;color:#fff;font:800 13px/1.1 var(--font);text-align:center;text-shadow:0 1px 0 #7a3500;animation:mgpulse .9s infinite}
+#mgtool svg{width:70px;height:70px}
+#mgtool.sel{background:linear-gradient(#93eea4,#35b957);border-color:#0b5a22;box-shadow:0 5px 0 #0b5a22,0 10px 14px #0007;text-shadow:0 1px 0 #0b5a22;animation:none}
+#mgm{position:absolute;display:none;width:96px;height:96px;margin:-87px 0 0 -45px;pointer-events:none;filter:drop-shadow(0 6px 5px #0007)}
+#mgm svg{width:100%;height:100%}
+#mgb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(circle at 50% 45%,#000a,#000d);color:#fff;text-align:center;font:800 34px/1.15 var(--font);padding:0 90px;box-sizing:border-box;z-index:5;text-shadow:0 3px 0 #0007}
+#mgb svg{width:104px;height:104px}#mgb .ui{color:#ffcc33}#mgb small{font:700 18px/1.3 var(--font);opacity:.92}
+#mg.ph0 #mgb{background:#0b1d27}
+#mg:not(.ph0):not(.res) #mgb{opacity:0;pointer-events:none}
+@keyframes mgpulse{50%{transform:scale(1.07)}}
+
+/* ===== MINIGAME 2: KIỂM TRA HÀNG HẾT DATE ===== */
+#qn{position:absolute;left:50%;top:62px;z-index:60;transform:translate(-50%,-40px) scale(.9);opacity:0;display:flex;align-items:center;gap:10px;padding:12px 24px;border-radius:24px;color:#fff;font:800 20px/1.1 var(--font);background:linear-gradient(#ff7a2e,#d9480f);border:3px solid #fff;box-shadow:0 0 0 4px #7a3500,0 10px 22px #000a;transition:.3s;pointer-events:none;white-space:nowrap}
+#qn.on{opacity:1;transform:translate(-50%,0) scale(1);animation:ring 1s infinite}
+#mg.qa{background:radial-gradient(ellipse at 50% 40%,#35566a,#0b1d27 75%)}
+#mg .qfr{position:absolute;left:120px;top:60px;width:720px;height:460px;box-sizing:border-box;border-radius:26px;padding:16px;background:linear-gradient(90deg,#eef3f6,#b5c3cc 12%,#d9e2e7 50%,#aab9c3 92%,#8e9ea9);box-shadow:0 14px 30px #000b,inset 0 0 0 3px #7f93a0}
+#mg .qhd{position:absolute;right:-22px;top:120px;width:14px;height:200px;border-radius:8px;background:linear-gradient(90deg,#6f818c,#dbe4e9,#6f818c);box-shadow:0 4px 8px #0008}
+#mg .qin{position:relative;width:100%;height:100%;border-radius:14px;overflow:hidden;background:linear-gradient(#f4fcff,#cfeaf6 60%,#b6dcee);box-shadow:inset 0 0 28px #4a90b080,inset 0 6px 14px #fff}
+#mg .qin:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0,#fff9,#fff0 60%);pointer-events:none}
+#mg .qsh{position:relative;height:50%;display:flex;justify-content:space-around;align-items:flex-end;padding:0 8px 16px;box-sizing:border-box}
+#mg .qsh:after{content:"";position:absolute;left:0;right:0;bottom:0;height:16px;background:linear-gradient(#e8f7ff,#9fd0e6 60%,#6fa9c4);border-top:2px solid #fff;box-shadow:0 6px 10px #0003}
+#mg .qi{position:relative;z-index:1;width:118px;height:176px;box-sizing:border-box;margin-bottom:-2px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:12px 6px 8px;background:linear-gradient(#ffffffd9,#ffffff88);border:2px solid #fff;box-shadow:0 5px 8px #0004;cursor:pointer;transition:transform .1s,background .15s}
+#mg .qi:hover{transform:translateY(-3px)}
+#mg .qi .em{font-size:68px;line-height:1;filter:drop-shadow(0 3px 2px #0003)}
+#mg .qi .nm{font:700 13px/1 var(--font);color:#35505e}
+#mg .qi .dt{width:100%;text-align:center;box-sizing:border-box;padding:4px 2px 3px;border-radius:7px;background:#fffbe0;border:2px solid #c9a227;color:#3a2412;font:800 20px/1 var(--font);box-shadow:0 2px 0 #c9a22788}
+#mg .qi .dt small{display:block;font:800 11px/1 var(--font);opacity:.7;margin-bottom:2px}
+#mg .qi:after{content:attr(data-b);position:absolute;right:-8px;top:-12px;min-width:34px;height:34px;border-radius:17px;padding:0 6px;box-sizing:border-box;display:none;align-items:center;justify-content:center;font:800 16px/1 var(--font);color:#fff;border:3px solid #fff;box-shadow:0 3px 6px #0007;white-space:nowrap}
+#mg .qi.sel{background:linear-gradient(#ffd6d1,#ff9d93);border-color:#e31d2b;box-shadow:0 0 0 4px #e31d2b,0 5px 8px #0004}
+#mg .qi.sel .em{filter:grayscale(.7) opacity(.6)}
+#mg .qi.sel:after{display:flex;content:"🗑️";background:#e31d2b}
+#mg .qi.ok{border-color:#1e9a40;box-shadow:0 0 0 4px #1e9a40}#mg .qi.ok:after{display:flex;background:#1e9a40;content:"✔"}
+#mg .qi.miss{border-color:#e31d2b;box-shadow:0 0 0 4px #e31d2b;animation:ring .6s infinite}#mg .qi.miss:after{display:flex;background:#e31d2b;content:"HẾT DATE!"}
+#mg .qi.wr{border-color:#f58220;box-shadow:0 0 0 4px #f58220}#mg .qi.wr:after{display:flex;background:#f58220;content:"CÒN HẠN"}
+#mg .qi.done{pointer-events:none}
+#qrs{position:absolute;inset:0;z-index:5;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#000b;color:#fff;text-align:center;font:800 32px/1.15 var(--font);padding:0 110px}
+#qrs.on{display:flex}#qrs small{font:700 18px/1.35 var(--font);opacity:.95}#qrs .big{margin-top:6px}
+#qrs.bad .t{color:#ff8a80}#qrs.good .t{color:#9af0b4}
 </style></head><body>
 <svg width='0' height='0' style='position:absolute'><defs><linearGradient id='sh' x1='0' x2='1' y1='0' y2='0.4'><stop offset='0' stop-color='#fff' stop-opacity='.55'/><stop offset='.45' stop-color='#fff' stop-opacity='0'/><stop offset='1' stop-color='#000' stop-opacity='.32'/></linearGradient></defs></svg>
 <div id="wrap"><div id="st">
@@ -605,7 +651,7 @@ button.big{font-size:22px;padding:10px 26px;border-radius:14px}
 </div>
 <div id="tint"></div>
 <div id="hud"></div>
-<div id="nav"></div><div id="vw" class="vv"></div><div id="vs" class="vv"></div><div id="off"></div><div id="pn"></div><div id="ov"></div><div id="fx"></div><div id="ts"></div>
+<div id="nav"></div><div id="vw" class="vv"></div><div id="vs" class="vv"></div><div id="off"></div><div id="pn"></div><div id="ov"></div><div id="fx"></div><div id="mg"></div><div id="ts"></div>
 </div></div>
 <script>
 'use strict';
@@ -1174,9 +1220,9 @@ const addB=(b,q,e)=>{const x=b.find(y=>y.e==e);x?x.q+=q:b.push({q,e});b.sort((a,
 const blank=()=>({rev:0,cogs:0,fx:0,rp:0,loss:0,n:0,lost:0,chg:0,cOver:0,cUnder:0,cN:0,cashIn:0});
 function base(){return{m:START_MONEY,d:1,r:50,t:0,u:{scan:0,heat:0,soda:0,shelf:0,fridge:0,area:0},rd:0,th:0,hol:0,cart:[],cash:{...FLOAT},st:blank(),
  pr:P.slice(0,NP).map(p=>({s:[{q:5,e:p[5]+1}],w:[{q:5,e:p[5]+1}]}))}}
-function runtime(){Object.assign(S,{view:0,pv:null,cashView:false,now:0,q:0,qs:[],cur:null,nx:3,gap:0,off:0,offT:0,taps:0,fr:null,promo:0,sv:0});plan()}
+function runtime(){Object.assign(S,{view:0,pv:null,cashView:false,now:0,q:0,qs:[],cur:null,nx:3,gap:0,off:0,offT:0,taps:0,fr:null,promo:0,sv:0,qa:(START_H+S.t/DAY*(END_H-START_H))>=15?1:0});plan()}
 function save(){if(!S)return;const{m,d,r,t,u,rd,th,hol,st,pr,cart,cash}=S;ls.s('mart',JSON.stringify({m,d,r,t,u,rd,th,hol,st,pr,cart,cash}))}
-function plan(){S.ev=[];const n=2+ri(2);for(let k=0;k<n;k++)S.ev.push({t:S.t+30+rnd(Math.max(10,420-S.t)),k:pick(['pw','fr','th','th','pr'])});S.ev.sort((a,b)=>a.t-b.t)}
+function plan(){S.ev=[];const n=2+ri(2);for(let k=0;k<n;k++)S.ev.push({t:S.t+30+rnd(Math.max(10,420-S.t)),k:pick(['pw','fr','th','th','pr','mop','mop'])});S.ev.sort((a,b)=>a.t-b.t)}
 
 const mk=i=>({u:++uid,i,h:P[i][7],sc:0,done:0,t0:0,dur:0,loc:i>=NP?'need':'tray'});
 function takeShelf(i){const b=S.pr[i].s,x=b[0],e=S.d>x.e;x.q--;if(!x.q)b.shift();return e}
@@ -1315,17 +1361,21 @@ function fire(k){
  else if(k=='th'){const l=S.pr.map((p,i)=>i).filter(i=>i<NP&&cnt(S.pr[i].s)>0);if(!l.length)return;
   const i=pick(l),q=Math.min(cnt(S.pr[i].s),1+ri(3));for(let j=0;j<q;j++)takeShelf(i);
   const v=q*P[i][3];S.th+=v;S.st.loss+=v;sfx('err');toast(t('🕵️ Mất trộm '+q+' '+nm(i)+'! Hãy làm báo cáo','🕵️ '+q+' '+nm(i)+' stolen! File a report'),'bad')}
+ else if(k=='mop')mopStart();
  else if(k=='pr'){S.promo=120;sfx('up');toast(t('🏷️ Khuyến mãi 2 phút: giảm 20%, khách đông!','🏷️ Promo 2 min: -20%, more customers!'),'good')}}
 
 /* ================= VÒNG LẶP CHÍNH ================= */
 function tick(){
  const n=Date.now(),dt=Math.min((n-last)/1000,.5);last=n;
+ if(S&&mode=='mop')return mopTick(dt);
+ if(S&&mode=='qa')return qaTick(dt);
  if(!S||mode!='play')return;
  S.now+=dt;S.t+=dt;S.sv+=dt;if(S.sv>5){S.sv=0;save()}
  while(S.ev.length&&S.ev[0].t<=S.t)fire(S.ev.shift().k);
  if(S.promo>0)S.promo-=dt;
  if(S.off){S.offT-=dt;if(S.offT<=0)S.off=0}
  const h=START_H+S.t/DAY*(END_H-START_H);
+ if(!S.qa&&h>=15){S.qa=1;qaStart()}   // 15h: minigame kiểm tra hàng hết date
  S.nx-=dt;
  if(S.nx<=0){S.nx=SPAWN_BASE/(demand(h)*(S.hol?1.7:1)*(S.promo>0?1.4:1)*(.6+S.r/100))*(.7+rnd(.6));
   if(S.q<3+S.u.area){S.q++;S.qs.push(ri(999))}else S.r=cl(S.r-.5)}
@@ -1362,7 +1412,7 @@ function endDay(){
    <div class="cash">${U('coin')}${Math.round(S.m)}k</div><div style="font:800 18px var(--font)">${U('star').replace('class="ui"','class="ui on" style="color:#ffcc33"')} ${Math.round(S.r)}</div>
    ${bk?`<button class="big" data-a="new">${t('Chơi mới','New game')}</button>`:`<button class="g big" data-a="next">${t('Sang ngày mới ▶','Next day ▶')}</button>`}</div></div>`);
  if(stars){confetti();sfx('up');setTimeout(()=>sfx('star'),500)}else sfx('err')}
-function nextDay(){S.d++;S.t=0;S.rd=0;S.th=0;S.st=blank();S.cash={...FLOAT};S.cashView=false;S.cur=null;S.q=0;S.qs=[];S.promo=0;S.nx=3;S.hol=ri(100)<18?1:0;plan();save();ov('');mode='play';
+function nextDay(){S.d++;S.t=0;S.rd=0;S.th=0;S.st=blank();S.cash={...FLOAT};S.cashView=false;S.cur=null;S.q=0;S.qs=[];S.promo=0;S.qa=0;S.nx=3;S.hol=ri(100)<18?1:0;plan();save();ov('');mode='play';
  if(S.hol)toast(t('🎉 Ngày lễ: khách đông gấp đôi!','🎉 Holiday: rush day!'),'good')}
 
 
@@ -1480,7 +1530,7 @@ function tutorial(){
  t('<b>Kéo món qua máy quét</b> – món hiện lên màn hình POS. Ô sáng vàng cho biết nơi cần thả.','<b>Drag items to the scanner</b> – they show on the POS. The yellow glow shows where to drop.'),
  t('Đồ ăn nóng: kéo vào <b>lò vi sóng</b> (cơm nắm, sandwich) hoặc <b>lò nướng</b> (xúc xích, pizza, sừng bò), chờ xong rồi kéo vào túi. Soda/Coca: kéo <b>ly</b> vào máy, rồi kéo ly ra túi.','Hot food: drag to the <b>microwave</b> (rice ball, sandwich) or <b>oven</b> (hotdog, pizza, croissant), wait, then bag it. Soda/Cola: drag the <b>cup</b> to the machine, then bag it.'),
  t('Đủ hàng trong túi → bấm đúng <b>phương thức thanh toán</b>. Khách trả <b>tiền mặt</b>: két mở ra, bạn tự tính và <b>thối đúng tiền</b> bằng các tờ VND. Thối sai (thừa hoặc thiếu) → cuối ngày bị trừ vào doanh thu, có thể <b>âm tiền</b>!','Bag full → tap the right <b>payment method</b>. Cash customer: the drawer opens, work out the change and give the <b>exact amount</b> in VND notes. Wrong change (over or short) is deducted from revenue at closing – it can go <b>negative</b>!'),
- t('Nút <b>▲ ▼ bên trái</b> để đi giữa <b>Kho → Quầy → Kệ ngoài</b>. Ở Kho: chạm hoặc kéo thùng lên <b>xe đẩy</b>; xuống Kệ ngoài: chạm hoặc kéo hàng từ xe đẩy lên đúng kệ / tủ lạnh.','Use <b>▲ ▼ on the left</b> to move between <b>Storage → Counter → Shelves</b>. In Storage tap or drag boxes onto the <b>cart</b>; downstairs tap or drag goods from the cart to the right shelf / fridge.'),
+ t('Nút <b>▲ ▼ bên trái</b> để đi giữa <b>Kho → Quầy → Kệ ngoài</b>. Ở Kho: chạm hoặc kéo hàng lên <b>xe đẩy</b>; xuống Kệ ngoài: chạm hoặc kéo hàng từ xe đẩy lên đúng kệ / tủ lạnh.','Use <b>▲ ▼ on the left</b> to move between <b>Storage → Counter → Shelves</b>. In Storage tap or drag goods onto the <b>cart</b>; downstairs tap or drag goods from the cart to the right shelf / fridge.'),
  t('Lúc vắng khách: <b>đặt hàng</b>, <b>nâng cấp</b>, <b>nộp báo cáo</b> & báo mất trộm. Kiểm tra hạn sử dụng (vứt hàng hết hạn). Mất điện / tủ lạnh hỏng → xử lý ngay!','Quiet time: <b>order</b>, <b>upgrade</b>, <b>file reports</b>. Check expiry (discard expired stock). Blackouts / broken fridges need fixing!')];
  ov(`<h1 class="ovh">${t('Hướng dẫn nhanh','Quick guide')}</h1><div class="tut">${st.map((s,i)=>`<div class="tc"><span class="tn">${i+1}</span><div>${s}</div></div>`).join('')}</div><div class="cnt" style="padding-top:14px"><button class="g big" data-a="go">${t('Bắt đầu','Start')}</button></div>`)}
 
@@ -1524,7 +1574,7 @@ function put(i){
  sfx('pop');
  for(const x of S.cart.filter(y=>y.i==i).sort((a,b)=>a.e-b.e)){const n=Math.min(room,x.q);addB(d.s,n,x.e);x.q-=n;room-=n}
  S.cart=S.cart.filter(x=>x.q>0)}
-// Điều phối thả: W:i = thùng kho, K:i = hàng trên xe, còn lại = thao tác ở quầy
+// Điều phối thả: W:i = hàng trong kho, K:i = hàng trên xe, còn lại = thao tác ở quầy
 function hand(k,z){
  if(k[0]=='W'){if(z=='cart')take(+k.slice(2))}
  else if(k[0]=='K'){const i=+k.slice(2);if(z.slice(0,3)=='sh:')+z.slice(3)==i?put(i):bad(t('Sai kệ! Món này thuộc kệ khác','Wrong shelf!'))}
@@ -1592,7 +1642,7 @@ const CARTSVG=(()=>{let w='';[40,106,230,296].forEach(x=>w+=`<circle cx="${x}" c
  <path d="M12 104H324" stroke="#fff" stroke-opacity=".6" stroke-width="1.4"/></svg>`})();
 function cartBlock(drag){
  const n=cartN(),m=cartMax();
- return `<div class="cartw"${drag?'':' data-z="cart"'}>${CARTSVG}<div class="cchips">${cartH(drag)||`<em>${drag?t('Xe trống – vào Kho lấy hàng','Empty – fetch stock in Storage'):t('Thả thùng hàng vào xe','Drop boxes here')}</em>`}</div><div class="cplate"><b>${U('cart')} ${t('Xe đẩy','Cart')}</b><i class="cbar"><s style="width:${Math.min(100,n/m*100)}%"></s></i><b>${n}/${m}</b></div></div>`}
+ return `<div class="cartw"${drag?'':' data-z="cart"'}>${CARTSVG}<div class="cchips">${cartH(drag)||`<em>${drag?t('Xe trống – vào Kho lấy hàng','Empty – fetch stock in Storage'):t('Thả hàng vào xe','Drop items here')}</em>`}</div><div class="cplate"><b>${U('cart')} ${t('Xe đẩy','Cart')}</b><i class="cbar"><s style="width:${Math.min(100,n/m*100)}%"></s></i><b>${n}/${m}</b></div></div>`}
 
 /* ô hàng dạng tầng kệ ngang (kệ ngoài / tủ lạnh) */
 function slotT(i,sm){
@@ -1603,9 +1653,9 @@ function boxRow(i,k,W,H){ // thùng carton xếp ngang (1–3 thùng theo lượ
  const bw=Math.min(W/k*.9,H*1.3,58),bh=bw*.75,gap=(W-k*bw)/(k+1);let o='';
  for(let L=0;L<k;L++)o+=G1.boxSVG(i,gap+L*(bw+gap),H-7-bh,bw,((L*5+i)%5-2)*.8);
  return `<svg viewBox="0 0 ${W} ${H}">${o}</svg>`}
-function wslot(i){ // ô thùng hàng trong kho
+function wslot(i){ // ô hàng trong kho (hàng đặt thẳng trên kệ)
  const q=cnt(S.pr[i].w),ex=expd(S.pr[i].w);
- return `<div class="sk bxs${q?'':' em zero'}${ex?' xp':''}"${q?` data-k="W:${i}" data-a="take" data-v="${i}"`:''} title="${nm(i)}"><span class="pile">${boxRow(i,vis(q,30,3),118,56)}${trashB(i,ex)}<span class="oos">${t('TRỐNG','EMPTY')}</span></span><span class="rail"><span class="nm">${nm(i)}</span><span class="pt cost">×${q}</span></span></div>`}
+ return `<div class="sk bxs${q?'':' em zero'}${ex?' xp':''}"${q?` data-k="W:${i}" data-a="take" data-v="${i}"`:''} title="${nm(i)}"><span class="pile">${shelfPile(i,vis(q,30,8),4,118,56)}${trashB(i,ex)}<span class="oos">${t('TRỐNG','EMPTY')}</span></span><span class="rail"><span class="nm">${nm(i)}</span><span class="pt cost">×${q}</span></span></div>`}
 function whHTML(){ // KHO: kệ hai bên, xe đẩy ở giữa
  const all=[...Array(NP).keys()],G=g=>all.filter(i=>P[i][6]==g),full=whTot()>=whCap();
  return `${CORR('wh')}
@@ -1613,7 +1663,7 @@ function whHTML(){ // KHO: kệ hai bên, xe đẩy ở giữa
  <div class="side R"><section class="unit cool wh"><div class="u-sign cold"><b>${t('TỦ LẠNH KHO','COLD STORE')}</b><span class="deg">-2°C</span></div><div class="subs"><span>${t('Đồ uống','Drinks')}</span><span>${t('Đồ ăn','Food')}</span></div><div class="cbody wcb"><div class="grid2 cg">${G(1).concat(G(2)).map(wslot).join('')}</div></div><div class="cplinth"></div></section></div>
  ${doorSVG()}
  <div class="winfo"><span class="chip${full?' full':''}">${U('box')} ${t('Kho','Storage')}: ${whTot()}/${whCap()}</span><button class="g" data-a="open" data-v="1">${U('cart')} ${t('Đặt hàng','Order')}</button></div>
- <div class="whint">${t('Chạm hoặc kéo thùng vào xe đẩy, rồi bấm ▼ đi xuống Quầy → Kệ hàng để xếp.','Tap or drag boxes onto the cart, then press ▼ to reach the Shelves.')}</div>
+ <div class="whint">${t('Chạm hoặc kéo hàng vào xe đẩy, rồi bấm ▼ đi xuống Quầy → Kệ hàng để xếp.','Tap or drag items onto the cart, then press ▼ to reach the Shelves.')}</div>
  ${cartBlock(0)}`}
 function shHTML(){ // KỆ NGOÀI: kệ hai bên, 2 tủ lạnh trong cùng, xe đẩy phía trước
  const all=[...Array(NP).keys()],G=g=>all.filter(i=>P[i][6]==g);
@@ -1683,6 +1733,123 @@ function cashUI(c){
  set('cdw',`<i class="slot">${noteArt(100,'n')}${noteArt(50,'n')}${noteArt(20,'n')}</i><div class="lb"><b>${cs?t('ĐANG THỐI TIỀN','GIVE CHANGE'):t('KÉT TIỀN','CASH DRAWER')}</b><span>${cashTot(S.cash)}k</span></div>`)}
 
 function fill(i){const d=S.pr[i];let room=cap(i)-cnt(d.s);while(room>0&&d.w.length){const b=d.w[0],q=Math.min(room,b.q);addB(d.s,q,b.e);b.q-=q;room-=q;if(!b.q)d.w.shift()}}
+
+/* ================= MINIGAME 1: LAU SÀN (10 giây, chà sạch bùn đất và rác) ================= */
+const MOP_T=10,MOP_R=42,MOP_OK=.985,MOP_PT=5;   // thời gian · bán kính cây lau · ngưỡng sạch · điểm danh tiếng +/-
+let M=null;
+const MOP_SVG=`<svg viewBox="0 0 64 64"><path d="M47 3L31 39" stroke="#7a4a20" stroke-width="6.5" stroke-linecap="round"/><path d="M47 3L31 39" stroke="#e6b06e" stroke-width="3.5" stroke-linecap="round"/><path d="M16 46q-4 11-2 14h7q-1-7 0-14zM25 46l-1 15h6l1-15zM34 46l1 15h7q1-8-1-15zM43 46q3 7 4 13h-5z" fill="#f1f6f9" stroke="#8aa5b8" stroke-width="1.4" stroke-linejoin="round"/><rect x="13" y="37" width="34" height="9" rx="3.5" fill="#2d6fc4" stroke="#143a6c" stroke-width="2"/></svg>`;
+function junk(g,k,x,y,a){ // rác: giấy nhăn, lon, vỏ chuối, gói snack, ly giấy
+ g.save();g.translate(x,y);g.rotate(a);g.lineWidth=2;g.lineJoin='round';
+ if(k==0){g.fillStyle='#f5f2ea';g.strokeStyle='#8f8a7c';g.beginPath();for(let j=0;j<9;j++){const q=j/9*6.283,r=j%2?11:18;g.lineTo(Math.cos(q)*r,Math.sin(q)*r)}g.closePath();g.fill();g.stroke();g.beginPath();g.moveTo(-6,-4);g.lineTo(3,2);g.moveTo(-2,6);g.lineTo(7,-6);g.stroke()}
+ else if(k==1){g.fillStyle='#cfd8de';g.strokeStyle='#5d6b75';g.beginPath();g.rect(-11,-19,22,38);g.fill();g.stroke();g.fillStyle='#e53935';g.fillRect(-11,-6,22,12)}
+ else if(k==2){g.strokeStyle='#8a6d00';g.fillStyle='#f6d33a';g.beginPath();g.moveTo(-24,7);g.quadraticCurveTo(0,-28,24,7);g.quadraticCurveTo(0,-8,-24,7);g.fill();g.stroke()}
+ else if(k==3){g.fillStyle='#ff9a2e';g.strokeStyle='#8a4a00';g.beginPath();g.rect(-17,-12,34,24);g.fill();g.stroke();g.fillStyle='#fff';g.fillRect(-8,-4,16,8)}
+ else{g.fillStyle='#fff';g.strokeStyle='#7b8d98';g.beginPath();g.moveTo(-11,-15);g.lineTo(11,-15);g.lineTo(8,16);g.lineTo(-8,16);g.closePath();g.fill();g.stroke();g.fillStyle='#e31d2b';g.fillRect(-10,-6,20,8)}
+ g.restore()}
+function mopStart(){
+ mode='mop';panelOpen=false;pn();S.cashView=false;
+ const el=$('mg');el.className='ph0';el.style.display='block';
+ el.innerHTML=`<div class="mgf"></div><canvas id="mgc" width="480" height="270"></canvas>
+  <div class="mgh"><b id="mgt">${MOP_T.toFixed(1)}</b><span>${t('Độ sạch','Clean')}</span><i class="mgp"><s id="mgs"></s></i><b id="mgl">0%</b></div>
+  <div id="mgtool">${MOP_SVG}<span>${t('Chọn cây lau nhà','Pick the mop')}</span></div><div id="mgm">${MOP_SVG}</div>
+  <div id="mgb">${MOP_SVG}<div>${t('Sàn nhà dơ rồi, hãy đi vệ sinh cửa hàng!','The floor is dirty – go clean the store!')}</div><small>${t('Chọn cây lau nhà rồi chà sạch sàn trong '+MOP_T+' giây','Pick the mop and scrub the floor clean in '+MOP_T+' seconds')}</small></div>`;
+ const g=$('mgc').getContext('2d',{willReadFrequently:true});g.setTransform(.5,0,0,.5,0,0);
+ for(let k=0;k<22;k++){const x=40+rnd(880),y=70+rnd(440),r0=50+rnd(60);            // bùn
+  for(let j=0;j<5;j++){const px=x+rnd(r0*1.3)-r0*.65,py=y+rnd(r0)-r0*.5,rr=r0*(.45+rnd(.5)),gr=g.createRadialGradient(px,py,0,px,py,rr);
+   gr.addColorStop(0,'rgba(86,58,32,.95)');gr.addColorStop(.75,'rgba(105,74,42,.88)');gr.addColorStop(1,'rgba(105,74,42,0)');g.fillStyle=gr;g.beginPath();g.arc(px,py,rr,0,7);g.fill()}}
+ for(let k=0;k<10;k++){g.save();g.translate(rnd(960),70+rnd(450));g.rotate(rnd(6.3));g.fillStyle='rgba(70,48,28,.8)';   // dấu chân
+  g.beginPath();g.ellipse(0,0,13,24,0,0,7);g.fill();g.beginPath();g.ellipse(2,-31,11,10,0,0,7);g.fill();g.restore()}
+ for(let k=0;k<9;k++)junk(g,k%5,50+rnd(860),80+rnd(430),rnd(6.3));                    // rác
+ g.clearRect(0,0,960,50);g.clearRect(826,414,134,126);                                // vùng thanh trên và khay công cụ
+ const d=g.getImageData(0,0,480,270).data,pts=[];
+ for(let y=0;y<270;y+=4)for(let x=0;x<480;x+=4){const i=(y*480+x)*4+3;if(d[i]>60)pts.push(i)}
+ M={g,pts,ph:0,tm:0,ck:0,left:MOP_T,sel:0,down:0,lx:0,ly:0,pct:0,ok:0};sfx('ding')}
+function mgPt(e){ // toạ độ chạm → toạ độ sân khấu 960×540 (kể cả khi màn hình dọc bị xoay 90°)
+ const r=$('st').getBoundingClientRect();
+ return document.body.classList.contains('port')?[(e.clientY-r.top)/SC,(r.right-e.clientX)/SC]:[(e.clientX-r.left)/SC,(e.clientY-r.top)/SC]}
+function mopMove(e){
+ const m=M,[x,y]=mgPt(e),mm=$('mgm');mm.style.display='block';mm.style.left=x+'px';mm.style.top=y+'px';
+ if(m.down&&m.ph==1){const g=m.g;g.globalCompositeOperation='destination-out';g.lineWidth=MOP_R*2;g.lineCap=g.lineJoin='round';
+  g.beginPath();g.moveTo(m.lx,m.ly);g.lineTo(x+.01,y);g.stroke();g.globalCompositeOperation='source-over'}
+ m.lx=x;m.ly=y}
+function mopMeasure(){
+ const m=M,d=m.g.getImageData(0,0,480,270).data;let r=0;for(const i of m.pts)if(d[i]>60)r++;
+ m.pct=m.pts.length?1-r/m.pts.length:1;m.ok=m.pct>=MOP_OK;
+ const p=Math.round(m.pct*100)+'%';$('mgs').style.width=p;$('mgl').textContent=p}
+function mopTick(dt){
+ const m=M;if(!m||m.ph==2)return;
+ if(m.ph==0){m.tm+=dt;if(m.tm>=2.2){m.ph=1;$('mg').classList.remove('ph0')}return}
+ m.left-=dt;m.ck+=dt;
+ if(m.ck>.15){m.ck=0;mopMeasure();if(m.ok)return mopEnd()}
+ const e=$('mgt');e.textContent=Math.max(0,m.left).toFixed(1);e.classList.toggle('low',m.left<=3);
+ if(m.left<=0){mopMeasure();mopEnd()}}
+function mopEnd(){
+ const m=M;if(!m||m.ph==2)return;m.ph=2;m.down=0;$('mgm').style.display='none';
+ const ok=m.ok,p=Math.round(m.pct*100);S.r=cl(S.r+(ok?MOP_PT:-MOP_PT));
+ $('mg').classList.add('res');
+ $('mgb').innerHTML=(ok?`${U('star')}<div>${t('Sàn nhà sạch bóng!','The floor is sparkling!')}</div><small>${t('Danh tiếng +'+MOP_PT,'Reputation +'+MOP_PT)}</small>`
+  :`${MOP_SVG}<div>${t('Sàn vẫn còn bẩn!','The floor is still dirty!')}</div><small>${t('Mới sạch '+p+'% · Danh tiếng −'+MOP_PT,'Only '+p+'% clean · Reputation −'+MOP_PT)}</small>`)
+  +`<button class="${ok?'g':'rd'} big" data-mg="x">${t('Tiếp tục ▶','Continue ▶')}</button>`;
+ sfx(ok?'up':'err')}
+function mopClose(){$('mg').style.display='none';$('mg').innerHTML='';M=null;mode='play';last=Date.now();save();R()}
+$('mg').addEventListener('click',e=>{if(e.target.closest('[data-mg]'))mopClose()});
+$('mg').addEventListener('pointerdown',e=>{
+ const m=M;if(!m||m.ph==2||e.target.closest('[data-mg]'))return;e.preventDefault();
+ if(e.target.closest('#mgtool')){if(!m.sel){m.sel=1;const b=$('mgtool');b.classList.add('sel');b.lastChild.textContent=t('Đã chọn – chà sàn đi!','Got it – scrub!');sfx('pop')}mopMove(e);return}
+ if(m.ph!=1)return;
+ if(!m.sel){shake('mgtool');return}
+ const [x,y]=mgPt(e);m.down=1;m.lx=x;m.ly=y;mopMove(e)});
+addEventListener('pointermove',e=>{if(M&&M.sel&&M.ph<2)mopMove(e)});
+const mgUp=()=>{if(M)M.down=0};addEventListener('pointerup',mgUp);addEventListener('pointercancel',mgUp);
+
+
+/* ================= MINIGAME 2: KIỂM TRA HÀNG HẾT DATE (lúc 15h, 15 giây, chọn hàng hết hạn trong tủ lạnh) ================= */
+const QA_T=15,QA_PEN=3,QA_CAP=12,QA_WR=1,QA_BR=5,QA_BM=30; // thời gian · trừ điểm/món sót · tối đa · trừ/món hủy nhầm · thưởng danh tiếng · thưởng tiền
+const QA_FOOD=[13,14,15,16,17,18,19,11,12,10];            // 10 món trong tủ lạnh (2 kệ × 5)
+let Q=null;
+function qaStart(){
+ mode='qa';panelOpen=false;pn();S.cashView=false;Q={ph:0,tm:0,left:QA_T,sel:new Set(),items:[]};
+ const n=document.createElement('div');n.id='qn';n.innerHTML=`<span style="font-size:26px">🔔</span>${t('Có hàng hoá hết date cần kiểm tra!','Expired goods need checking!')}`;
+ $('st').appendChild(n);void n.offsetWidth;n.classList.add('on');Q.n=n;sfx('alarm')}
+function qaBuild(){
+ if(Q.n){Q.n.remove();Q.n=null}
+ const d0=new Date(),dd=k=>{const x=new Date(d0.getFullYear(),d0.getMonth(),d0.getDate()+k);return String(x.getDate()).padStart(2,0)+'/'+String(x.getMonth()+1).padStart(2,0)};
+ const ids=QA_FOOD.slice().sort(()=>Math.random()-.5),ne=3+ri(3),ex=new Set();while(ex.size<ne)ex.add(ri(10));
+ Q.items=ids.map((i,k)=>{const e=ex.has(k);return{i,e,d:e?dd(-(1+ri(3))):dd(1+ri(5))}});
+ const row=r=>Q.items.slice(r*5,r*5+5).map((x,j)=>`<div class="qi" data-q="${r*5+j}"><span class="em">${P[x.i][0]}</span><span class="nm">${nm(x.i)}</span><div class="dt"><small>HSD</small>${x.d}</div></div>`).join('');
+ const el=$('mg');el.className='qa';el.style.display='block';
+ el.innerHTML=`<div class="mgh"><b id="qat">${QA_T.toFixed(1)}</b><span>${t('Chọn hàng HẾT DATE (HSD trước hôm nay '+dd(0)+')','Pick EXPIRED items (date before today '+dd(0)+')')}</span><i class="mgp"><s id="qas" style="width:100%"></s></i><span id="qac" style="min-width:64px;text-align:right">0 ${t('món','sel.')}</span><button class="g" data-qa="ok" style="padding:6px 14px">${t('Hủy hàng ✔','Discard ✔')}</button></div>
+ <div class="qfr"><div class="qhd"></div><div class="qin"><div class="qsh">${row(0)}</div><div class="qsh">${row(1)}</div></div></div>
+ <div id="qrs"></div>`;
+ Q.ph=1;sfx('ding')}
+function qaTick(dt){
+ const q=Q;if(!q||q.ph==2)return;
+ if(q.ph==0){q.tm+=dt;if(q.tm>=2)qaBuild();return}
+ q.left-=dt;const e=$('qat');e.textContent=Math.max(0,q.left).toFixed(1);e.classList.toggle('low',q.left<=5);$('qas').style.width=Math.max(0,q.left/QA_T*100)+'%';
+ if(q.left<=0)qaEnd()}
+function qaToggle(k){
+ const q=Q;if(!q||q.ph!=1)return;q.sel.has(k)?q.sel.delete(k):q.sel.add(k);
+ document.querySelector(`.qi[data-q="${k}"]`).classList.toggle('sel',q.sel.has(k));$('qac').textContent=q.sel.size+' '+t('món','sel.');sfx('pop')}
+function qaEnd(){
+ const q=Q;if(!q||q.ph!=1)return;q.ph=2;
+ let ok=0,miss=0,wr=0,lossV=0;
+ q.items.forEach((x,k)=>{const el=document.querySelector(`.qi[data-q="${k}"]`),s=q.sel.has(k);el.classList.remove('sel');el.classList.add('done');
+  if(x.e&&s){ok++;el.classList.add('ok')}else if(x.e){miss++;el.classList.add('miss')}else if(s){wr++;lossV+=P[x.i][3];el.classList.add('wr')}});
+ S.r=cl(S.r-wr*QA_WR);S.st.loss+=lossV;
+ let h,sub,kind;
+ if(miss>0){const pen=Math.min(QA_CAP,QA_PEN*miss);S.r=cl(S.r-pen);kind='bad';
+  h=pick([t('Ôi không, bạn đã bị QA bắt lỗi hạn sử dụng!','Oh no, QA caught you with expired goods!'),t('Ôi không, khách hàng đã phát hiện đồ hết date!','Oh no, a customer found expired goods!')]);
+  sub=t(`Bỏ sót ${miss} món hết date · Danh tiếng −${pen}`,`Missed ${miss} expired item(s) · Reputation −${pen}`)}
+ else{const perfect=wr==0;kind='good';S.r=cl(S.r+(perfect?QA_BR:2));if(perfect)S.m+=QA_BM;
+  h=perfect?t('Kiểm hàng xuất sắc!','Perfect inspection!'):t('Đã hủy hết hàng hết date!','All expired goods discarded!');
+  sub=perfect?t(`Hủy đúng ${ok}/${ok} món · Danh tiếng +${QA_BR} · Thưởng +${QA_BM}k`,`Discarded ${ok}/${ok} · Reputation +${QA_BR} · Bonus +${QA_BM}k`):t(`Nhưng hủy nhầm ${wr} món còn hạn (−${wr} danh tiếng) · Danh tiếng +2`,`But ${wr} fresh item(s) wrongly discarded (−${wr} rep) · Reputation +2`)}
+ sfx(kind=='bad'?'err':'up');if(kind=='good')sfx('cash');
+ setTimeout(()=>{const r=$('qrs');if(!r)return;r.className=kind+' on';r.innerHTML=`<div class="t">${h}</div><small>${sub}</small><button class="${kind=='bad'?'rd':'g'} big" data-qa="x">${t('Tiếp tục ▶','Continue ▶')}</button>`},1600)}
+function qaClose(){$('mg').style.display='none';$('mg').innerHTML='';$('mg').className='';Q=null;mode='play';last=Date.now();save();R()}
+$('mg').addEventListener('click',e=>{
+ if(!Q)return;const b=e.target.closest('[data-qa]');
+ if(b){if(b.dataset.qa=='ok')qaEnd();else if(b.dataset.qa=='x')qaClose();return}
+ const it=e.target.closest('.qi');if(it&&it.dataset.q!=null)qaToggle(+it.dataset.q)});
 
 /* ================= HÀNH ĐỘNG NÚT BẤM ================= */
 function act(a,v){
