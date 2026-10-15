@@ -1142,7 +1142,7 @@ P.forEach((p,i)=>p[0]=ic(i)); // p[0] giờ là hình SVG (symbol) của món h�
  d.innerHTML=`<svg width="0" height="0" xmlns="http://www.w3.org/2000/svg"><defs>${G1.GRADS}</defs>${SYM.join('')}${G1.BOX_SYMBOL}${G1.ICON_SYMBOLS}</svg>`;document.body.prepend(d)})();
 const bxic=i=>`<svg class='ic' viewBox='0 0 64 48'><use href='#bx'/><use href='#p${i}' x='4' y='15' width='20' height='26'/></svg>`;
 
-const DAY=900, START_H=6, END_H=24;  // 1 ngày = 900 giây thực, từ 6h đến 24h
+const DAY=480, START_H=6, END_H=20;  // 1 ngày = 900 giây thực, từ 6h đến 24h
 const START_MONEY=300, SPAWN_BASE=30; // tiền ban đầu; giây giữa 2 khách (càng nhỏ càng đông)
 const PATIENCE=[80,45,100,80];       // kiên nhẫn (giây): thường, vội, kỹ tính, mặc cả
 const demand=h=>h<8?.35:h<15?.8:h<19?1.7:h<21?.9:.35; // độ đông theo giờ
@@ -1176,7 +1176,7 @@ function base(){return{m:START_MONEY,d:1,r:50,t:0,u:{scan:0,heat:0,soda:0,shelf:
  pr:P.slice(0,NP).map(p=>({s:[{q:5,e:p[5]+1}],w:[{q:5,e:p[5]+1}]}))}}
 function runtime(){Object.assign(S,{view:0,pv:null,cashView:false,now:0,q:0,qs:[],cur:null,nx:3,gap:0,off:0,offT:0,taps:0,fr:null,promo:0,sv:0});plan()}
 function save(){if(!S)return;const{m,d,r,t,u,rd,th,hol,st,pr,cart,cash}=S;ls.s('mart',JSON.stringify({m,d,r,t,u,rd,th,hol,st,pr,cart,cash}))}
-function plan(){S.ev=[];const n=2+ri(2);for(let k=0;k<n;k++)S.ev.push({t:S.t+30+rnd(Math.max(10,840-S.t)),k:pick(['pw','fr','th','th','pr'])});S.ev.sort((a,b)=>a.t-b.t)}
+function plan(){S.ev=[];const n=2+ri(2);for(let k=0;k<n;k++)S.ev.push({t:S.t+30+rnd(Math.max(10,420-S.t)),k:pick(['pw','fr','th','th','pr'])});S.ev.sort((a,b)=>a.t-b.t)}
 
 const mk=i=>({u:++uid,i,h:P[i][7],sc:0,done:0,t0:0,dur:0,loc:i>=NP?'need':'tray'});
 function takeShelf(i){const b=S.pr[i].s,x=b[0],e=S.d>x.e;x.q--;if(!x.q)b.shift();return e}
