@@ -659,16 +659,16 @@ button.big{font-size:22px;padding:10px 26px;border-radius:14px}
 /* ================= THÔNG SỐ CÂN BẰNG (chỉnh tại đây) =================
  Mỗi hàng: [emoji, tên VI, tên EN, giá nhập, giá bán, HSD (ngày), nhóm (0 kệ,1 tủ lạnh 1,2 tủ lạnh 2,3 quầy), loại hâm] */
 const P=[
-['🍜','Mì gói','Instant noodles',3,6,60,0,0],['🍟','Snack khoai','Chips',4,8,40,0,0],
-['🍬','Kẹo','Candy',2,5,90,0,0],['🍪','Bánh quy','Cookies',3,7,50,0,0],
+['🍜','Mì gói','Instant noodles',2,6,60,0,0],['🍟','Snack khoai','Chips',3,8,40,0,0],
+['🍬','Kẹo','Candy',2,5,90,0,0],['🍪','Bánh quy','Cookies',2,7,50,0,0],
 ['🧻','Khăn giấy','Tissue',2,5,300,0,0],['🔋','Pin','Battery',5,10,300,0,0],
-['🧴','Dầu gội','Shampoo',6,12,300,0,0],['📓','Sổ tay','Notebook',3,7,300,0,0],
-['🥜','Hạt dinh dưỡng','Nuts',4,9,45,0,0],['🪥','Bàn chải','Toothbrush',3,7,300,0,0],
+['🧴','Dầu gội','Shampoo',4,12,300,0,0],['📓','Sổ tay','Notebook',3,7,300,0,0],
+['🥜','Hạt dinh dưỡng','Nuts',2,9,45,0,0],['🪥','Bàn chải','Toothbrush',3,7,300,0,0],
 ['💧','Nước suối','Water',1,3,20,1,0],['🥫','Nước ngọt','Soft drink',2,5,20,1,0],
 ['🍺','Bia','Beer',5,10,25,1,0],['🥛','Sữa','Milk',3,6,8,1,0],['🧃','Nước ép','Juice',3,7,10,1,0],
-['🍙','Cơm nắm','Rice ball',5,11,2,2,'mic'],['🥪','Sandwich','Sandwich',6,13,2,2,'mic'],
-['🌭','Xúc xích','Hotdog',4,10,2,2,'ovn'],['🍕','Pizza','Pizza',8,16,2,2,'ovn'],['🥐','Bánh sừng bò','Croissant',4,9,2,2,'ovn'],
-['🍹','Soda','Soda',1,8,0,3,'mac'],['🥤','Coca tươi','Fresh cola',1,9,0,3,'mac']];
+['🍙','Cơm nắm','Rice ball',3,10,2,2,'mic'],['🥪','Sandwich','Sandwich',3,13,2,2,'mic'],
+['🌭','Xúc xích','Hotdog',3,10,2,2,'ovn'],['🍕','Pizza','Pizza',5,20,2,2,'ovn'],['🥐','Bánh sừng bò','Croissant',3,9,2,2,'ovn'],
+['🍹','Trà tắc','Calamansi Tea',1,8,0,3,'mac'],['🥤','Oolong rang','Oolong Milktea',1,9,0,3,'mac']];
 const NP=20;                         // số mặt hàng có tồn kho (2 món cuối là đồ uống tại quầy)
 /* ===== VẼ ĐỒ VẬT 2D BẰNG SVG (đổ bóng + bóng sáng, không dùng emoji) ===== */
 /* ===== ĐỒ HOẠ 2D TỪ GAME 7-ELEVEN: hàng hoá, người, máy móc, giỏ, túi, kệ, thùng ===== */
@@ -1001,7 +1001,7 @@ const GRADS=`
 <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a8161a"/><stop offset=".25" stop-color="#e9453d"/><stop offset=".7" stop-color="#d12a2a"/><stop offset="1" stop-color="#8f1015"/></linearGradient>
 <linearGradient id="gScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2fd0b8"/><stop offset="1" stop-color="#127a8c"/></linearGradient>
 <linearGradient id="gScan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#21404a"/><stop offset="1" stop-color="#0d1d24"/></linearGradient>
-<linearGradient id="gTank" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6ff8a"/><stop offset=".5" stop-color="#7fe04a"/><stop offset="1" stop-color="#2f9e3a"/></linearGradient>
+<linearGradient id="gTank" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd54a"/><stop offset=".5" stop-color="#f2b705"/><stop offset="1" stop-color="#b87800"/></linearGradient>
 <linearGradient id="gMw" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4a54"/><stop offset="1" stop-color="#121a20"/></linearGradient>
 <linearGradient id="gOv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a2a1c"/><stop offset="1" stop-color="#150b07"/></linearGradient>
 <radialGradient id="gCoin" cx=".38" cy=".3" r=".9"><stop offset="0" stop-color="#fff0a0"/><stop offset=".55" stop-color="#ffc928"/><stop offset="1" stop-color="#d98c00"/></radialGradient>
@@ -1068,7 +1068,7 @@ f:`<ellipse cx="50" cy="146" rx="47" ry="3.6" fill="#000" opacity=".25"/>
 <path d="M15 26Q31 21 46 26T85 24" fill="none" stroke="#eaffc0" stroke-width="2"/>
 <g fill="#fff" opacity=".8"><circle cx="28" cy="48" r="2.6"/><circle cx="40" cy="38" r="1.8"/><circle cx="50" cy="52" r="2.2"/><circle cx="62" cy="40" r="2.6"/><circle cx="72" cy="50" r="1.8"/><circle cx="34" cy="31" r="1.4"/><circle cx="58" cy="31" r="1.4"/></g>
 <path d="M20 13Q30 11 33 14L28 58H20Z" fill="#fff" opacity=".4"/>
-<rect x="12" y="64" width="76" height="13" rx="5" fill="#fff"/><text x="50" y="74.4" text-anchor="middle" font-size="9.4" ${FONT} fill="#c1181d">SODA TƯƠI</text>
+<rect x="12" y="64" width="76" height="13" rx="5" fill="#fff"/><text x="50" y="74.4" text-anchor="middle" font-size="6.6" ${FONT} fill="#c1181d">TRÀ TẮC NHÀ 7</text>
 <rect x="30" y="80" width="40" height="10" rx="3.4" fill="url(#gSteelH)"/><rect x="36" y="90" width="9" height="7" rx="1.6" fill="#b5c1c8"/><rect x="55" y="90" width="9" height="7" rx="1.6" fill="#b5c1c8"/>
 <rect x="12" y="97" width="76" height="37" rx="6.4" fill="#2a0e10"/><rect x="12" y="97" width="76" height="6" rx="4" fill="#000" opacity=".35"/>
 <rect x="10" y="132" width="80" height="9" rx="3.4" fill="url(#gSteelH)"/><path d="M16 136.4H84" stroke="#6f7c85" stroke-width="1.4" stroke-dasharray="3.6 2.4"/>`,
@@ -1194,7 +1194,7 @@ const START_MONEY=300, SPAWN_BASE=30; // tiền ban đầu; giây giữa 2 khác
 const PATIENCE=[80,45,100,80];       // kiên nhẫn (giây): thường, vội, kỹ tính, mặc cả
 const demand=h=>h<8?.35:h<15?.8:h<19?1.7:h<21?.9:.35; // độ đông theo giờ
 const fixedCost=()=>60+20*Object.values(S.u).reduce((a,b)=>a+b,0); // lương + thuê + điện mỗi ngày
-const UP=[['scan','Máy quét nhanh','Faster scanner',150],['heat','Lò hâm nhanh','Faster ovens',150],['soda','Máy soda nhanh','Faster soda',120],
+const UP=[['scan','Máy quét nhanh','Faster scanner',150],['heat','Lò hâm nhanh','Faster ovens',150],['TRÀ TẮC','Trà tắc nhà 7','Bubbler Trà tắc',120],
 ['shelf','Thêm kệ (+3 sức chứa/món)','More shelves (+3/item)',140],['fridge','Thêm tủ lạnh (+3/món)','More fridge (+3/item)',160],
 ['area','Mở rộng diện tích (kho, hàng chờ, kiên nhẫn)','Expand store (WH, queue, patience)',200]];
 const MAXLV=4;
@@ -1529,7 +1529,7 @@ function menu(){mode='menu';ov(`<div class="fl1">${ic(17)}</div><div class="fl2"
 function tutorial(){
  const st=[t('Khách đặt rổ lên quầy → <b>chọn túi</b> (3/5/10 món) ở dưới bàn.','Customer puts a basket → <b>pick a bag</b> (3/5/10) below the counter.'),
  t('<b>Kéo món qua máy quét</b> – món hiện lên màn hình POS. Ô sáng vàng cho biết nơi cần thả.','<b>Drag items to the scanner</b> – they show on the POS. The yellow glow shows where to drop.'),
- t('Đồ ăn nóng: kéo vào <b>lò vi sóng</b> (cơm nắm, sandwich) hoặc <b>lò nướng</b> (xúc xích, pizza, sừng bò), chờ xong rồi kéo vào túi. Soda/Coca: kéo <b>ly</b> vào máy, rồi kéo ly ra túi.','Hot food: drag to the <b>microwave</b> (rice ball, sandwich) or <b>oven</b> (hotdog, pizza, croissant), wait, then bag it. Soda/Cola: drag the <b>cup</b> to the machine, then bag it.'),
+ t('Đồ ăn nóng: kéo vào <b>lò vi sóng</b> (cơm nắm, sandwich) hoặc <b>lò nướng</b> (xúc xích, pizza, sừng bò), chờ xong rồi kéo vào túi. Trà tắc/Coca: kéo <b>ly</b> vào máy, rồi kéo ly ra túi.','Hot food: drag to the <b>microwave</b> (rice ball, sandwich) or <b>oven</b> (hotdog, pizza, croissant), wait, then bag it. Soda/Cola: drag the <b>cup</b> to the machine, then bag it.'),
  t('Đủ hàng trong túi → bấm đúng <b>phương thức thanh toán</b>. Khách trả <b>tiền mặt</b>: két mở ra, bạn tự tính và <b>thối đúng tiền</b> bằng các tờ VND. Thối sai (thừa hoặc thiếu) → cuối ngày bị trừ vào doanh thu, có thể <b>âm tiền</b>!','Bag full → tap the right <b>payment method</b>. Cash customer: the drawer opens, work out the change and give the <b>exact amount</b> in VND notes. Wrong change (over or short) is deducted from revenue at closing – it can go <b>negative</b>!'),
  t('Nút <b>▲ ▼ bên trái</b> để đi giữa <b>Kho → Quầy → Kệ ngoài</b>. Ở Kho: chạm hoặc kéo hàng lên <b>xe đẩy</b>; xuống Kệ ngoài: chạm hoặc kéo hàng từ xe đẩy lên đúng kệ / tủ lạnh.','Use <b>▲ ▼ on the left</b> to move between <b>Storage → Counter → Shelves</b>. In Storage tap or drag goods onto the <b>cart</b>; downstairs tap or drag goods from the cart to the right shelf / fridge.'),
  t('Lúc vắng khách: <b>đặt hàng</b>, <b>nâng cấp</b>, <b>nộp báo cáo</b> & báo mất trộm. Kiểm tra hạn sử dụng (vứt hàng hết hạn). Mất điện / tủ lạnh hỏng → xử lý ngay!','Quiet time: <b>order</b>, <b>upgrade</b>, <b>file reports</b>. Check expiry (discard expired stock). Blackouts / broken fridges need fixing!')];
